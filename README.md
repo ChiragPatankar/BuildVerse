@@ -76,7 +76,7 @@ Tailored AI implementations designed to solve your unique business challenges wi
 
 | Metric | Achievement |
 |--------|-------------|
-| **Years of Excellence** | 5+ Years |
+| **Years of Excellence** | 2+ Years |
 | **AI Models Deployed** | 100+ |
 | **Enterprise Clients** | 50+ |
 | **Client Retention** | 99% |
