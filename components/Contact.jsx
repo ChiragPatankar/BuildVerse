@@ -115,7 +115,7 @@ const Contact = () => {
               variants={itemVariants}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6 leading-tight"
             >
-              Let's Discuss Your Project
+              Let&apos;s Discuss Your Project
             </motion.h2>
             <motion.p
               variants={itemVariants}

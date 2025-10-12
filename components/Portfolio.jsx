@@ -225,7 +225,7 @@ const Portfolio = () => {
                 Ready to Build Your Success Story?
               </h3>
               <p className="text-slate-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-                Let's discuss how AI can transform your business operations and drive measurable results.
+                Let&apos;s discuss how AI can transform your business operations and drive measurable results.
               </p>
               <motion.a
                 href="#contact"
