@@ -1,0 +1,24 @@
+{
+  "name": "BuildVerse - Enterprise AI Solutions",
+  "short_name": "BuildVerse",
+  "description": "Enterprise AI solutions provider specializing in MVP development, AI voice agents, and intelligent automation",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#1E90FF",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+

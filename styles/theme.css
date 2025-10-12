@@ -1,0 +1,30 @@
+/* Light Mode Theme Styles */
+/* Note: Light mode is the default, dark mode uses 'dark:' prefix */
+
+/* Smooth transitions for theme switching */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Preserve animations */
+[class*="animate-"],
+[class*="transition-transform"],
+[class*="transition-all"] {
+  transition-property: all;
+}
+
+/* Body background gradient */
+body {
+  background: linear-gradient(to bottom, #f1f5f9, #e2e8f0);
+}
+
+.dark body {
+  background: linear-gradient(to bottom, #000000, #0a0a0a);
+}
+
+/* Ensure proper color scheme */
+:root {
+  color-scheme: light dark;
+}
