@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FiArrowUpRight, FiBarChart2, FiMessageSquare, FiCpu, FiTrendingUp, FiLayers, FiTarget } from 'react-icons/fi'
+import { FiArrowUpRight, FiBarChart2, FiMessageSquare, FiCpu, FiTrendingUp, FiLayers, FiTarget, FiExternalLink, FiGithub } from 'react-icons/fi'
 
 const Portfolio = () => {
   const ref = useRef(null)
@@ -33,14 +33,18 @@ const Portfolio = () => {
     {
       icon: FiMessageSquare,
       title: 'AI Customer Support Platform',
-      description: 'Intelligent customer service automation handling 10,000+ daily queries with 95% satisfaction rate.',
+      description: 'Multi-tenant chat support system with real-time AI assistance, handling 10,000+ daily queries with 95% satisfaction rate. Built with React, Node.js, and Google Gemini API.',
       category: 'Conversational AI',
       metrics: [
-        { label: 'Daily Queries', value: '10K+' },
+        { label: 'Response Time', value: '<30s' },
         { label: 'Satisfaction', value: '95%' },
-        { label: 'Cost Reduction', value: '60%' },
+        { label: 'Cost Saved', value: '60%' },
       ],
-      tags: ['NLP', 'Machine Learning', 'Chat Automation'],
+      tags: ['React', 'Node.js', 'Gemini AI', 'WebSocket'],
+      liveDemo: 'https://mcp-flame.vercel.app',
+      github: 'https://github.com/ChiragPatankar/MCP',
+      caseStudyLink: '#case-study-ai-support',
+      featured: true,
     },
     {
       icon: FiBarChart2,
@@ -204,12 +208,54 @@ const Portfolio = () => {
                       ))}
                     </div>
 
-                    {/* Action Link */}
-                    <button className="mt-4 flex items-center space-x-2 text-sm font-semibold text-primary-blue group-hover:text-blue-400 transition-colors">
-                      <span>View Case Study</span>
-                      <FiArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    </button>
+                    {/* Action Links */}
+                    <div className="mt-4 space-y-2">
+                      {project.caseStudyLink && (
+                        <a
+                          href={project.caseStudyLink}
+                          className="flex items-center space-x-2 text-sm font-semibold text-primary-blue group-hover:text-blue-400 transition-colors"
+                        >
+                          <span>Read Full Case Study</span>
+                          <FiArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        </a>
+                      )}
+                      
+                      {/* Project Links */}
+                      {(project.liveDemo || project.github) && (
+                        <div className="flex flex-wrap gap-2 pt-2">
+                          {project.liveDemo && (
+                            <a
+                              href={project.liveDemo}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center space-x-1 px-3 py-1.5 text-xs font-medium bg-primary-blue/10 hover:bg-primary-blue/20 text-primary-blue border border-primary-blue/20 rounded-lg transition-colors"
+                            >
+                              <FiExternalLink className="w-3 h-3" />
+                              <span>Live Demo</span>
+                            </a>
+                          )}
+                          {project.github && (
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center space-x-1 px-3 py-1.5 text-xs font-medium bg-slate-200 dark:bg-white/5 hover:bg-slate-300 dark:hover:bg-white/10 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-white/10 rounded-lg transition-colors"
+                            >
+                              <FiGithub className="w-3 h-3" />
+                              <span>GitHub</span>
+                            </a>
+                          )}
+                        </div>
+                      )}
+                    </div>
                   </div>
+
+                  {/* Featured Badge */}
+                  {project.featured && (
+                    <div className="absolute top-4 right-4 px-3 py-1 bg-primary-blue text-white text-xs font-bold rounded-full shadow-lg">
+                      FEATURED
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}
