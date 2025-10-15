@@ -12,21 +12,22 @@ export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "BuildVerse",
-    "alternateName": "BuildVerse AI Studio",
-    "url": "https://buildverse.ai",
-    "logo": "https://buildverse.ai/logo.png",
-    "description": "Enterprise AI solutions provider specializing in MVP development, AI voice agents, intelligent automation, and custom AI implementations for businesses.",
-    "email": "hello@buildverse.ai",
-    "telephone": "+1 (234) 567-8900",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "US"
-    },
-    "sameAs": [
-      "https://linkedin.com/company/buildverse",
-      "https://twitter.com/buildverse"
-    ],
+      "name": "BuildVerse",
+      "alternateName": "BuildVerse AI Studio",
+      "url": "https://buildverse.studio",
+      "logo": "https://buildverse.studio/logo.png",
+      "description": "Enterprise AI solutions provider specializing in MVP development, AI voice agents, intelligent automation, and custom AI implementations for businesses.",
+      "email": "chirag@buildverse.studio",
+      "telephone": "+91-9322529729",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mumbai",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/buildverse-studio/about/?viewAsMember=true",
+        "https://x.com/_BuildVerse_"
+      ],
     "foundingDate": "2019",
     "slogan": "Turning Ideas Into Intelligent Realities",
     "knowsAbout": [
@@ -111,30 +112,30 @@ export default function Home() {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://buildverse.ai/" />
+          {/* Canonical URL */}
+          <link rel="canonical" href="https://buildverse.studio/" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://buildverse.ai/" />
-        <meta property="og:site_name" content="BuildVerse" />
-        <meta property="og:title" content="BuildVerse - Enterprise AI Solutions | MVP Development & AI Voice Agents" />
-        <meta property="og:description" content="Transform your business with enterprise AI solutions. Expert MVP development, AI voice agents, and intelligent automation. Trusted by 50+ enterprise clients." />
-        <meta property="og:image" content="https://buildverse.ai/logo.png" />
+          <meta property="og:url" content="https://buildverse.studio/" />
+          <meta property="og:site_name" content="BuildVerse" />
+          <meta property="og:title" content="BuildVerse - Enterprise AI Solutions | MVP Development & AI Voice Agents" />
+          <meta property="og:description" content="Transform your business with enterprise AI solutions. Expert MVP development, AI voice agents, and intelligent automation. Trusted by 50+ enterprise clients." />
+          <meta property="og:image" content="https://buildverse.studio/logo.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="BuildVerse AI Innovation Studio Logo" />
         <meta property="og:locale" content="en_US" />
 
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://buildverse.ai/" />
-        <meta name="twitter:title" content="BuildVerse - Enterprise AI Solutions | MVP Development & AI Voice Agents" />
-        <meta name="twitter:description" content="Transform your business with enterprise AI solutions. Expert MVP development, AI voice agents, and intelligent automation." />
-        <meta name="twitter:image" content="https://buildverse.ai/logo.png" />
-        <meta name="twitter:image:alt" content="BuildVerse AI Innovation Studio Logo" />
-        <meta name="twitter:creator" content="@buildverse" />
-        <meta name="twitter:site" content="@buildverse" />
+          {/* Twitter */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:url" content="https://buildverse.studio/" />
+          <meta name="twitter:title" content="BuildVerse - Enterprise AI Solutions | MVP Development & AI Voice Agents" />
+          <meta name="twitter:description" content="Transform your business with enterprise AI solutions. Expert MVP development, AI voice agents, and intelligent automation." />
+          <meta name="twitter:image" content="https://buildverse.studio/logo.png" />
+          <meta name="twitter:image:alt" content="BuildVerse AI Innovation Studio Logo" />
+          <meta name="twitter:creator" content="@_BuildVerse_" />
+          <meta name="twitter:site" content="@_BuildVerse_" />
 
         {/* Additional SEO Tags */}
         <meta name="rating" content="general" />

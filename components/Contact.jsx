@@ -42,20 +42,20 @@ const Contact = () => {
     {
       icon: FiMail,
       label: 'Email',
-      value: 'hello@buildverse.ai',
-      link: 'mailto:hello@buildverse.ai',
+      value: 'chirag@buildverse.studio',
+      link: 'mailto:chirag@buildverse.studio',
     },
     {
       icon: FiPhone,
       label: 'Phone',
-      value: '+1 (234) 567-8900',
-      link: 'tel:+12345678900',
+      value: '+91 93225 29729',
+      link: 'tel:+919322529729',
     },
     {
       icon: FaWhatsapp,
       label: 'WhatsApp',
       value: 'Chat with us',
-      link: 'https://wa.me/1234567890',
+      link: 'https://wa.me/919322529729',
     },
   ]
 

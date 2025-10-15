@@ -7,11 +7,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
-    { icon: FiMail, href: 'mailto:contact@buildverse.ai', label: 'Email' },
-    { icon: FaWhatsapp, href: 'https://wa.me/1234567890', label: 'WhatsApp' },
-    { icon: FiLinkedin, href: 'https://linkedin.com/company/buildverse', label: 'LinkedIn' },
-    { icon: FiTwitter, href: 'https://twitter.com/buildverse', label: 'Twitter' },
-    { icon: FiGithub, href: 'https://github.com/buildverse', label: 'GitHub' },
+    { icon: FiMail, href: 'mailto:chirag@buildverse.studio', label: 'Email' },
+    { icon: FaWhatsapp, href: 'https://wa.me/919322529729', label: 'WhatsApp' },
+    { icon: FiLinkedin, href: 'https://www.linkedin.com/company/buildverse-studio/about/?viewAsMember=true', label: 'LinkedIn' },
+    { icon: FiTwitter, href: 'https://x.com/_BuildVerse_', label: 'Twitter' },
   ]
 
   const footerLinks = [
