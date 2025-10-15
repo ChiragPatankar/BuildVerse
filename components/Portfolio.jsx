@@ -41,9 +41,9 @@ const Portfolio = () => {
         { label: 'Cost Saved', value: '60%' },
       ],
       tags: ['React', 'Node.js', 'Gemini AI', 'WebSocket'],
-      liveDemo: 'https://mcp-flame.vercel.app',
+      liveDemo: 'https://274653e9.mcp-5wk.pages.dev/',
       github: 'https://github.com/ChiragPatankar/MCP',
-      caseStudyLink: '#case-study-ai-support',
+      caseStudyLink: '/case-studies/ai-customer-support-platform',
       featured: true,
     },
     {
