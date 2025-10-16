@@ -28,11 +28,11 @@ const Navbar = () => {
   }
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '#home', type: 'anchor' },
+    { name: 'About', href: '/about', type: 'route' },
+    { name: 'Services', href: '#services', type: 'anchor' },
+    { name: 'Portfolio', href: '#portfolio', type: 'anchor' },
+    { name: 'Contact', href: '#contact', type: 'anchor' },
   ]
 
   const scrollToSection = (e, href) => {
@@ -85,7 +85,11 @@ const Navbar = () => {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  onClick={(e) => scrollToSection(e, item.href)}
+                  onClick={(e) => {
+                    if (item.type === 'anchor') {
+                      scrollToSection(e, item.href)
+                    }
+                  }}
                   className="text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors font-medium relative group text-sm"
                   whileHover={{ y: -1 }}
                 >
