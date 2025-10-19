@@ -28,6 +28,14 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Case Studies Page -->
+  <url>
+    <loc>https://buildverse.studio/case-studies</loc>
+    <lastmod>2025-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Portfolio Section -->
   <url>
     <loc>https://buildverse.studio/#portfolio</loc>
