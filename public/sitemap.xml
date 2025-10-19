@@ -28,14 +28,6 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- Case Studies Page -->
-  <url>
-    <loc>https://buildverse.studio/case-studies</loc>
-    <lastmod>2025-01-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
   <!-- Portfolio Section -->
   <url>
     <loc>https://buildverse.studio/#portfolio</loc>
@@ -52,9 +44,23 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Case Study Page -->
+  <!-- Case Study Pages -->
   <url>
     <loc>https://buildverse.studio/case-studies/ai-customer-support-platform/</loc>
+    <lastmod>2025-01-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://buildverse.studio/case-studies/predictive-analytics-engine/</loc>
+    <lastmod>2025-01-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://buildverse.studio/case-studies/voice-activated-sales-system/</loc>
     <lastmod>2025-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

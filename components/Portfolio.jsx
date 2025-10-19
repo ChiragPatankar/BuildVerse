@@ -57,6 +57,7 @@ const Portfolio = () => {
         { label: 'Active Users', value: '500+' },
       ],
       tags: ['Predictive Analytics', 'Big Data', 'ML Models'],
+      caseStudyLink: '/case-studies/predictive-analytics-engine',
     },
     {
       icon: FiCpu,
@@ -69,6 +70,7 @@ const Portfolio = () => {
         { label: 'Meetings Booked', value: '2K+' },
       ],
       tags: ['Voice Recognition', 'Sales Automation', 'CRM'],
+      caseStudyLink: '/case-studies/voice-activated-sales-system',
     },
     {
       icon: FiTrendingUp,
@@ -260,22 +262,6 @@ const Portfolio = () => {
               </motion.div>
             ))}
           </div>
-
-          {/* View All Case Studies Button */}
-          <motion.div
-            variants={itemVariants}
-            className="text-center pt-8"
-          >
-            <motion.a
-              href="/case-studies"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-slate-200 dark:bg-white/5 hover:bg-slate-300 dark:hover:bg-white/10 text-slate-700 dark:text-white font-semibold rounded-xl transition-all duration-200 border-2 border-slate-300 dark:border-white/10 hover:border-primary-blue/50"
-            >
-              <span>View All Case Studies</span>
-              <FiArrowUpRight className="w-5 h-5" />
-            </motion.a>
-          </motion.div>
 
           {/* Bottom CTA */}
           <motion.div

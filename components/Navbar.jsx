@@ -30,7 +30,6 @@ const Navbar = () => {
   const navItems = [
     { name: 'Home', href: '#home', type: 'anchor' },
     { name: 'About', href: '/about', type: 'route' },
-    { name: 'Case Studies', href: '/case-studies', type: 'route' },
     { name: 'Services', href: '#services', type: 'anchor' },
     { name: 'Portfolio', href: '#portfolio', type: 'anchor' },
     { name: 'Contact', href: '#contact', type: 'anchor' },
