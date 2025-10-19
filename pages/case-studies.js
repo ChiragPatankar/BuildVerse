@@ -19,7 +19,7 @@ import {
   FiLayers,
   FiFileText,
   FiBrain,
-  FiEye,
+  FiMonitor,
   FiLock
 } from 'react-icons/fi'
 
@@ -49,7 +49,7 @@ export default function CaseStudies() {
       id: 2,
       title: "Weld Defect Classifier using CNN",
       category: "COMPUTER VISION",
-      icon: FiEye,
+      icon: FiMonitor,
       description: "Industrial-grade CNN model for automated weld defect detection in manufacturing. Achieves high accuracy in quality control processes.",
       metrics: [
         { label: "Accuracy", value: "94%", icon: FiTarget },
