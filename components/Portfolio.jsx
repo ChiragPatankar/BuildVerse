@@ -83,6 +83,7 @@ const Portfolio = () => {
         { label: 'Efficiency Gain', value: '+70%' },
       ],
       tags: ['RPA', 'Workflow', 'Integration'],
+      caseStudyLink: '/case-studies/enterprise-workflow-automation',
     },
     {
       icon: FiLayers,
@@ -95,6 +96,7 @@ const Portfolio = () => {
         { label: 'Speed Increase', value: '10x' },
       ],
       tags: ['NLP', 'Content Generation', 'Marketing'],
+      caseStudyLink: '/case-studies/ai-content-generation-suite',
     },
     {
       icon: FiTarget,
@@ -107,6 +109,7 @@ const Portfolio = () => {
         { label: 'Active Users', value: '1M+' },
       ],
       tags: ['Recommendation', 'Personalization', 'ML'],
+      caseStudyLink: '/case-studies/personalization-recommendation-engine',
     },
   ]
 
