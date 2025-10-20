@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi'
 import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const Navbar = () => {
   const [mounted, setMounted] = useState(false)
@@ -10,6 +12,7 @@ const Navbar = () => {
   const { theme, setTheme } = useTheme()
   const [scrolled, setScrolled] = useState(false)
   const [showToast, setShowToast] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     setMounted(true)
@@ -28,19 +31,35 @@ const Navbar = () => {
   }
 
   const navItems = [
-    { name: 'Home', href: '#home', type: 'anchor' },
+    { name: 'Home', href: '/', type: 'route' },
     { name: 'About', href: '/about', type: 'route' },
-    { name: 'Services', href: '#services', type: 'anchor' },
-    { name: 'Portfolio', href: '#portfolio', type: 'anchor' },
-    { name: 'Contact', href: '#contact', type: 'anchor' },
+    { name: 'Services', href: '/#services', type: 'route' },
+    { name: 'Portfolio', href: '/#portfolio', type: 'route' },
+    { name: 'Contact', href: '/#contact', type: 'route' },
   ]
 
-  const scrollToSection = (e, href) => {
+  const handleNavigation = (e, item) => {
     e.preventDefault()
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      setIsOpen(false)
+    setIsOpen(false)
+    
+    if (item.type === 'route') {
+      if (item.href.includes('#')) {
+        // Handle hash links (like /#services)
+        const [path, hash] = item.href.split('#')
+        if (router.pathname === path || (path === '/' && router.pathname === '/')) {
+          // We're on the same page, just scroll to section
+          const element = document.querySelector(`#${hash}`)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+          }
+        } else {
+          // Navigate to different page with hash
+          router.push(item.href)
+        }
+      } else {
+        // Regular route navigation
+        router.push(item.href)
+      }
     }
   }
 
@@ -58,13 +77,12 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex items-center justify-between h-16 md:h-20 lg:h-24">
           {/* Logo */}
-           <motion.a
-            href="#home"
-            className="flex items-center space-x-3 group"
-            whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.99 }}
-            onClick={(e) => scrollToSection(e, '#home')}
-          >
+          <Link href="/">
+            <motion.a
+              className="flex items-center space-x-3 group cursor-pointer"
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.99 }}
+            >
             <div className="relative w-10 h-10 md:w-11 md:h-11 flex-shrink-0">
               <Image
                 src="/logo.png"
@@ -77,7 +95,8 @@ const Navbar = () => {
               <span className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
                 BuildVerse
               </span>
-          </motion.a>
+            </motion.a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8 lg:space-x-10">
@@ -85,11 +104,7 @@ const Navbar = () => {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  onClick={(e) => {
-                    if (item.type === 'anchor') {
-                      scrollToSection(e, item.href)
-                    }
-                  }}
+                  onClick={(e) => handleNavigation(e, item)}
                   className="text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors font-medium relative group text-sm"
                   whileHover={{ y: -1 }}
                 >
@@ -182,7 +197,7 @@ const Navbar = () => {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  onClick={(e) => scrollToSection(e, item.href)}
+                  onClick={(e) => handleNavigation(e, item)}
                   className="block px-4 py-3 text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-lg transition-colors text-sm font-medium"
                   whileHover={{ x: 4 }}
                 >
