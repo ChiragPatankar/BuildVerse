@@ -2,8 +2,8 @@ import Head from 'next/head'
 import { motion } from 'framer-motion'
 import { FiArrowLeft, FiExternalLink, FiGithub, FiCheck, FiClock, FiUsers, FiDollarSign, FiTrendingUp, FiZap, FiMessageSquare, FiBarChart } from 'react-icons/fi'
 import Link from 'next/link'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer'
 
 export default function AiCustomerSupportCaseStudy() {
   const technologies = [
