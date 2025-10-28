@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { FiArrowRight } from 'react-icons/fi'
+import Link from 'next/link'
 
 const Hero = () => {
   // Animation variants
@@ -98,14 +99,15 @@ const Hero = () => {
                 <FiArrowRight className="group-hover:translate-x-1 transition-transform w-4 h-4" />
               </motion.a>
 
-                <motion.a
-                  href="#services"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="px-6 py-3 sm:px-8 sm:py-4 bg-slate-200 dark:bg-white/5 hover:bg-slate-300 dark:hover:bg-white/10 text-slate-900 dark:text-white font-semibold rounded-lg border border-slate-300 dark:border-white/10 hover:border-slate-400 dark:hover:border-white/20 transition-all duration-200 backdrop-blur-sm text-sm sm:text-base text-center"
-                >
-                  View Services
-                </motion.a>
+                <Link href="/brochure" className="contents">
+                  <motion.a
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="px-6 py-3 sm:px-8 sm:py-4 bg-slate-200 dark:bg-white/5 hover:bg-slate-300 dark:hover:bg-white/10 text-slate-900 dark:text-white font-semibold rounded-lg border border-slate-300 dark:border-white/10 hover:border-slate-400 dark:hover:border-white/20 transition-all duration-200 backdrop-blur-sm text-sm sm:text-base text-center"
+                  >
+                    View Brochure
+                  </motion.a>
+                </Link>
             </motion.div>
 
               {/* Stats */}
