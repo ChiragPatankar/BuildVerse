@@ -31,50 +31,50 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      name: 'James Anderson',
+      name: 'James A.',
       role: 'CEO',
-      company: 'TechVentures Inc.',
-      content: 'BuildVerse transformed our entire customer support operation. Their AI chatbot handles 90% of inquiries with incredible accuracy, and our team can now focus on complex issues. ROI exceeded our expectations in just 3 months.',
+      company: 'B2B SaaS (US)',
+      content: 'We launched a support assistant with BuildVerse in under 6 weeks. First response time dropped noticeably and our team now spends more time on priority tickets instead of repetitive queries.',
       rating: 5,
       initials: 'JA',
     },
     {
-      name: 'Emily Rodriguez',
+      name: 'Emily R.',
       role: 'CTO',
-      company: 'FinTech Solutions',
-      content: 'The MVP they built for us was production-ready from day one. BuildVerse&apos;s team understood our vision perfectly and delivered a scalable AI platform that now serves 50,000+ users. Exceptional work.',
+      company: 'Fintech Startup (EU)',
+      content: 'Clean architecture, clear communication, and pragmatic trade-offs. The MVP shipped on schedule and scaled smoothly through our beta without surprises.',
       rating: 5,
       initials: 'ER',
     },
     {
-      name: 'Michael Chen',
+      name: 'Michael C.',
       role: 'Operations Director',
-      company: 'Global Logistics Co.',
-      content: 'Their workflow automation platform eliminated 200+ hours of manual work monthly. BuildVerse didn&apos;t just deliver a product—they became a strategic partner in our digital transformation journey.',
-      rating: 5,
+      company: 'Logistics Firm (APAC)',
+      content: 'Workflow automations replaced several manual steps in order processing. We see fewer handoffs and faster cycle times in day-to-day ops.',
+      rating: 4,
       initials: 'MC',
     },
     {
-      name: 'Sophie Williams',
+      name: 'Sophie W.',
       role: 'VP of Product',
-      company: 'HealthTech Innovations',
-      content: 'BuildVerse&apos;s AI model development expertise helped us launch a predictive analytics system that reduced patient readmission rates by 35%. Their attention to detail and technical depth is unmatched.',
+      company: 'HealthTech (UK)',
+      content: 'BuildVerse helped us stand up a predictive layer for our analytics. The team was thoughtful about data quality and model monitoring from day one.',
       rating: 5,
       initials: 'SW',
     },
     {
-      name: 'Rajesh Kumar',
+      name: 'Rajesh K.',
       role: 'Founder',
-      company: 'E-commerce Pro',
-      content: 'We needed an AI voice assistant for our sales team, and BuildVerse delivered beyond expectations. The system handles 5,000+ calls daily with natural conversations. Our conversion rates increased by 42%.',
-      rating: 5,
+      company: 'E-commerce Brand (IN)',
+      content: 'The voice assistant now qualifies inbound leads before routing to sales. It feels natural, and our team has clearer context when they jump in.',
+      rating: 4,
       initials: 'RK',
     },
     {
-      name: 'Lisa Thompson',
+      name: 'Lisa T.',
       role: 'Head of Innovation',
-      company: 'Retail Dynamics',
-      content: 'The personalization engine BuildVerse built revolutionized our customer experience. We&apos;ve seen 38% increase in engagement and 25% revenue growth. Their team is responsive, professional, and results-driven.',
+      company: 'Retail Group (NA)',
+      content: 'Personalized recommendations were rolled out incrementally. Engagement improved and we had a safe rollback plan throughout—great execution discipline.',
       rating: 5,
       initials: 'LT',
     },
@@ -94,7 +94,7 @@ const Testimonials = () => {
             Trusted by Industry Leaders
           </h2>
           <p className="text-lg text-slate-600 dark:text-gray-400 max-w-2xl mx-auto">
-            See what our clients say about working with BuildVerse to transform their businesses with AI
+            Practical outcomes from teams in fintech, SaaS, logistics, healthcare, and retail
           </p>
         </motion.div>
 
@@ -158,7 +158,7 @@ const Testimonials = () => {
         >
           <div className="inline-flex items-center space-x-2 bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10 rounded-full px-6 py-3">
             <span className="text-slate-600 dark:text-gray-400 text-sm">
-              Trusted by <span className="font-bold text-slate-900 dark:text-white">50+</span> companies worldwide
+              Trusted by growth-stage and enterprise teams
             </span>
           </div>
         </motion.div>
