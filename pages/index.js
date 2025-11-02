@@ -26,7 +26,7 @@ export default function Home() {
         "addressCountry": "IN"
       },
       "sameAs": [
-        "https://www.linkedin.com/company/buildverse-studio/about/?viewAsMember=true",
+        "https://www.linkedin.com/company/buildverse-studio/?viewAsMember=true",
         "https://x.com/_BuildVerse_"
       ],
     "foundingDate": "2019",

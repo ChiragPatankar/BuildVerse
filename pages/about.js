@@ -30,7 +30,7 @@ export default function AboutPage() {
       url: 'https://buildverse.studio',
       logo: 'https://buildverse.studio/logo.png',
       sameAs: [
-        'https://www.linkedin.com/company/buildverse-studio/about/?viewAsMember=true',
+        'https://www.linkedin.com/company/buildverse-studio/?viewAsMember=true',
         'https://x.com/_BuildVerse_',
       ],
       founder: {
@@ -139,7 +139,7 @@ export default function AboutPage() {
                   
                   <div className="space-y-3">
                     <div className="flex flex-wrap gap-2">
-                      <a href="https://www.linkedin.com/company/buildverse-studio/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[calc(50%-4px)] inline-flex items-center justify-center gap-2 px-3 py-2.5 text-xs font-medium bg-white dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-white/10 rounded-lg transition-colors">
+                      <a href="https://www.linkedin.com/company/buildverse-studio/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[calc(50%-4px)] inline-flex items-center justify-center gap-2 px-3 py-2.5 text-xs font-medium bg-white dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-white/10 rounded-lg transition-colors">
                         <FiLinkedin className="w-4 h-4" /> LinkedIn
                       </a>
                       <a href="https://x.com/_BuildVerse_" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[calc(50%-4px)] inline-flex items-center justify-center gap-2 px-3 py-2.5 text-xs font-medium bg-white dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-white/10 rounded-lg transition-colors">

@@ -293,7 +293,7 @@ const Contact = () => {
                 </h3>
                 <div className="flex space-x-3">
                   <a
-                    href="https://linkedin.com/company/buildverse"
+                    href="https://www.linkedin.com/company/buildverse-studio/?viewAsMember=true"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center transition-all"

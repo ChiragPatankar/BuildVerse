@@ -9,7 +9,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: FiMail, href: 'mailto:chirag@buildverse.studio', label: 'Email' },
     { icon: FaWhatsapp, href: 'https://wa.me/919322529729', label: 'WhatsApp' },
-    { icon: FiLinkedin, href: 'https://www.linkedin.com/company/buildverse-studio/about/?viewAsMember=true', label: 'LinkedIn' },
+    { icon: FiLinkedin, href: 'https://www.linkedin.com/company/buildverse-studio/?viewAsMember=true', label: 'LinkedIn' },
     { icon: FiTwitter, href: 'https://x.com/_BuildVerse_', label: 'Twitter' },
   ]
 
