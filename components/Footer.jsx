@@ -34,8 +34,8 @@ const Footer = () => {
     {
       title: 'Legal',
       links: [
-        { name: 'Privacy Policy', href: '/privacy' },
-        { name: 'Terms of Service', href: '/terms' },
+        { name: 'Privacy Policy', href: '#' },
+        { name: 'Terms of Service', href: '#' },
       ],
     },
   ]
@@ -83,6 +83,24 @@ const Footer = () => {
                   <social.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary-blue" />
                 </motion.a>
               ))}
+            </div>
+            
+            {/* Product Hunt Badge */}
+            <div className="pt-4">
+              <a 
+                href="https://www.producthunt.com/products/buildverse?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-buildverse" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <img 
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1031909&theme=neutral&t=1762063929034" 
+                  alt="BuildVerse - AI Studio for Businesses — Automate. Optimize. Build. | Product Hunt" 
+                  style={{ width: '250px', height: '54px' }} 
+                  width="250" 
+                  height="54" 
+                />
+              </a>
             </div>
           </div>
 
