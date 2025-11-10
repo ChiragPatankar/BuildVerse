@@ -63,16 +63,27 @@ const Contact = () => {
     e.preventDefault()
     setIsLoading(true)
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsLoading(false)
+    try {
+      const resp = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : undefined,
+        }),
+      })
+      if (!resp.ok) {
+        throw new Error('Failed to submit')
+      }
       setIsSubmitted(true)
       setFormData({ name: '', email: '', company: '', message: '' })
-      
-      setTimeout(() => {
-        setIsSubmitted(false)
-      }, 5000)
-    }, 2000)
+      setTimeout(() => setIsSubmitted(false), 5000)
+    } catch (err) {
+      console.error('Contact submit error:', err)
+      alert('There was an issue sending your message. Please try again.')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleChange = (e) => {
