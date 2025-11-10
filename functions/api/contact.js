@@ -3,6 +3,19 @@ import { createClient } from '@supabase/supabase-js'
 export async function onRequestPost(context) {
   const { request, env } = context
 
+  // CORS headers
+  const corsHeaders = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Content-Type': 'application/json',
+  }
+
+  // Handle OPTIONS preflight
+  if (request.method === 'OPTIONS') {
+    return new Response(null, { headers: corsHeaders })
+  }
+
   const supabaseUrl = env.SUPABASE_URL
   const supabaseServiceKey = env.SUPABASE_SERVICE_ROLE_KEY
 
@@ -10,11 +23,11 @@ export async function onRequestPost(context) {
     return new Response(
       JSON.stringify({
         error: 'Supabase not configured',
-        message: 'Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY',
+        message: 'Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY. Please set these in Cloudflare Pages Environment Variables.',
       }),
       {
         status: 500,
-        headers: { 'Content-Type': 'application/json' },
+        headers: corsHeaders,
       }
     )
   }
@@ -24,10 +37,10 @@ export async function onRequestPost(context) {
     body = await request.json()
   } catch (e) {
     return new Response(
-      JSON.stringify({ error: 'Invalid JSON' }),
+      JSON.stringify({ error: 'Invalid JSON', details: e.message }),
       {
         status: 400,
-        headers: { 'Content-Type': 'application/json' },
+        headers: corsHeaders,
       }
     )
   }
@@ -36,10 +49,10 @@ export async function onRequestPost(context) {
 
   if (!name || !email || !message) {
     return new Response(
-      JSON.stringify({ error: 'Missing required fields' }),
+      JSON.stringify({ error: 'Missing required fields', received: { name: !!name, email: !!email, message: !!message } }),
       {
         status: 400,
-        headers: { 'Content-Type': 'application/json' },
+        headers: corsHeaders,
       }
     )
   }
@@ -70,10 +83,15 @@ export async function onRequestPost(context) {
 
     if (error) {
       return new Response(
-        JSON.stringify({ error: 'Insert failed', details: error.message }),
+        JSON.stringify({ 
+          error: 'Insert failed', 
+          details: error.message,
+          code: error.code,
+          hint: error.hint,
+        }),
         {
           status: 500,
-          headers: { 'Content-Type': 'application/json' },
+          headers: corsHeaders,
         }
       )
     }
@@ -82,15 +100,19 @@ export async function onRequestPost(context) {
       JSON.stringify({ ok: true }),
       {
         status: 200,
-        headers: { 'Content-Type': 'application/json' },
+        headers: corsHeaders,
       }
     )
   } catch (e) {
     return new Response(
-      JSON.stringify({ error: 'Server error', message: e?.message || 'Unknown error' }),
+      JSON.stringify({ 
+        error: 'Server error', 
+        message: e?.message || 'Unknown error',
+        stack: process.env.NODE_ENV === 'development' ? e?.stack : undefined,
+      }),
       {
         status: 500,
-        headers: { 'Content-Type': 'application/json' },
+        headers: corsHeaders,
       }
     )
   }
