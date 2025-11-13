@@ -8,7 +8,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export default function AboutPage() {
-  const [imageSrc, setImageSrc] = useState('/founder/me.png')
+  const [imageSrc, setImageSrc] = useState('/founder.png')
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -36,7 +36,7 @@ export default function AboutPage() {
       founder: {
         '@type': 'Person',
         name: 'Chirag Patankar',
-        image: 'https://buildverse.studio/founder/me.png',
+        image: 'https://buildverse.studio/founder.png',
         jobTitle: 'Founder & CEO',
       },
     },
@@ -130,7 +130,7 @@ export default function AboutPage() {
                       sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover object-top"
                       priority
-                      onError={() => setImageSrc((prev) => (prev.includes('.png') ? '/founder/me.jpg' : '/logo.png'))}
+                      onError={() => setImageSrc((prev) => (prev.includes('founder.png') ? '/founder/me.jpg' : '/logo.png'))}
                     />
                   </div>
                   <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">Chirag Patankar</h2>
