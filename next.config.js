@@ -3,8 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   
   // Static Export for Cloudflare Pages
-  // TEMPORARILY DISABLED for local voice agent development - uncomment before deploying
-  // output: 'export',
+  output: 'export',
   
   // Image Optimization (unoptimized for static export)
   images: {
