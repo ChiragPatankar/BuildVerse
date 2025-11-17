@@ -39,3 +39,6 @@ After deploying:
 
 For local development, the Next.js API route (`pages/api/contact.js`) still works. The Cloudflare function only runs in production on Cloudflare Pages.
 
+
+
+

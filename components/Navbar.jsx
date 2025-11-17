@@ -77,7 +77,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex items-center justify-between h-16 md:h-20 lg:h-24">
           {/* Logo */}
-          <Link href="/">
+          <Link href="/" legacyBehavior>
             <motion.a
               className="flex items-center space-x-3 group cursor-pointer"
               whileHover={{ scale: 1.01 }}

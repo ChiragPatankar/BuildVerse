@@ -290,7 +290,7 @@ export default function Brochure() {
                     </a>
                   </Link>
                   <a href="mailto:hello@buildverse.studio" className="px-6 py-3 rounded-xl bg-white text-slate-900 border border-slate-200 hover:bg-slate-50 dark:bg-white/5 dark:text-white dark:border-white/10 dark:hover:bg-white/10 font-semibold transition-colors">
-                    Email Us: hello@buildverse.studio
+                    Email Us: chirag@buildverse.studio
                   </a>
                 </div>
               </div>

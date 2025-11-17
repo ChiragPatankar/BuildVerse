@@ -99,7 +99,7 @@ const Hero = () => {
                 <FiArrowRight className="group-hover:translate-x-1 transition-transform w-4 h-4" />
               </motion.a>
 
-                <Link href="/brochure" className="contents">
+                <Link href="/brochure" legacyBehavior>
                   <motion.a
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}

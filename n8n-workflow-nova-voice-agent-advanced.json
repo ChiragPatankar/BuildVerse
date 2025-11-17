@@ -1,0 +1,170 @@
+{
+  "name": "Nova Voice Agent - Advanced Booking (Groq + Calendar + Email + DB)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "appointment-booking",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [200, 300],
+      "notes": "Receives requests from Nova voice agent"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            { "name": "userMessage", "value": "={{ $json.message }}", "type": "string" },
+            { "name": "conversationHistory", "value": "={{ $json.conversationHistory }}", "type": "array" },
+            { "name": "receivedAt", "value": "={{ $now }}", "type": "string" }
+          ]
+        }
+      },
+      "id": "extract",
+      "name": "Extract Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [420, 300]
+    },
+    {
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "requestMethod": "POST",
+        "url": "={{ $env.GROQ_API_URL || 'https://api.groq.com/openai/v1/chat/completions' }}",
+        "jsonParameters": true,
+        "options": {
+          "retryOnFail": true,
+          "timeout": 30000
+        },
+        "sendHeaders": true,
+        "headerParametersJson": "={\n  \"Authorization\": \"Bearer {{$env.GROQ_API_KEY || 'YOUR_GROQ_API_KEY'}}\",\n  \"Content-Type\": \"application/json\"\n}",
+        "bodyParametersJson": "={\n  \"model\": \"{{$env.GROQ_MODEL || 'llama-3.1-70b-versatile'}}\",\n  \"temperature\": 0.2,\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are Nova, a friendly AI scheduling assistant for BuildVerse. Extract or ask for: name, email, duration(15|30), preferred date/time, and purpose. If info missing, ask concise clarifying question. Return strict JSON in a 'structured' key and a conversational 'reply'.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Message: {{$json.userMessage}}\\nHistory: {{$json.conversationHistory}}\"\n    }\n  ]\n}"
+      },
+      "id": "groq",
+      "name": "Groq LLM (HTTP)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [660, 300],
+      "notes": "Calls Groq (OpenAI-compatible) for smart parsing & reply"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse Groq response\\nconst res = $json;\\nlet content = ''\\ntry {\\n  content = (res.choices && res.choices[0] && res.choices[0].message && res.choices[0].message.content) || ''\\n} catch (e) {}\\n// Attempt to find JSON block at the end of content\\nlet structured = {}\\ntry {\\n  const jsonStart = content.lastIndexOf('{');\\n  if (jsonStart !== -1) {\\n    const maybeJson = content.slice(jsonStart);\\n    structured = JSON.parse(maybeJson);\\n    content = content.slice(0, jsonStart).trim();\\n  }\\n} catch (e) {\\n  structured = {};\\n}\\n// Ensure fields exist\\nconst output = {\\n  reply: content && content.trim() ? content.trim() : 'I can help schedule that. Could you share a preferred date/time and email?',\\n  structured: {\\n    name: structured.name || null,\\n    email: structured.email || null,\\n    duration: structured.duration || null,\\n    date: structured.date || null,\\n    time: structured.time || null,\\n    purpose: structured.purpose || null\\n  }\\n}\\nreturn [{ json: output }]"
+      },
+      "id": "parse",
+      "name": "Parse LLM Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "conditions": [
+            { "leftValue": "={{ $json.structured.email }}", "operation": {"type":"string","operation":"isEmpty"} },
+            { "leftValue": "={{ $json.structured.date }}", "operation": {"type":"string","operation":"isEmpty"} },
+            { "leftValue": "={{ $json.structured.duration }}", "operation": {"type":"string","operation":"isEmpty"} }
+          ],
+          "combinator": "or"
+        }
+      },
+      "id": "missing",
+      "name": "Missing Required Fields?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1140, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {"assignments": [
+          { "name": "response", "value": "={{ $json.reply || 'Could you share your email, preferred date, and 15 or 30 minute duration?' }}", "type": "string" }
+        ]}
+      },
+      "id": "askmore",
+      "name": "Ask for Missing Info",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [1360, 200]
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "calendar": "={{ $env.GCAL_CALENDAR_ID || 'primary' }}",
+        "additionalFields": {
+          "description": "={{ 'Purpose: ' + ($json.structured.purpose || 'N/A') }}",
+          "attendeesUi": {"attendeeFields": [
+            { "email": "={{ $json.structured.email || 'no-email@invalid.test' }}" }
+          ]}
+        },
+        "start": "={{ $json.structured.date + ' ' + ($json.structured.time || '09:00') }}",
+        "end": "={{ $json.structured.date + ' ' + ( $json.structured.duration === '30' ? '09:30' : '09:15') }}"
+      },
+      "id": "gcal",
+      "name": "Google Calendar - Create Event",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 3,
+      "position": [1360, 420],
+      "notes": "Requires Google Calendar credentials configured in n8n"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "fromEmail": "={{ $env.SMTP_FROM || 'hello@buildverse.studio' }}",
+        "toEmail": "={{ $json.structured.email }}",
+        "subject": "Your BuildVerse meeting is scheduled",
+        "text": "={{ 'Hi, your meeting is scheduled on ' + $json.start?.dateTime + '. We will email you details shortly. - BuildVerse' }}"
+      },
+      "id": "email",
+      "name": "Email Confirmation",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [1600, 420],
+      "notes": "Configure SMTP credentials in n8n"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO appointments (name, email, duration, date, time, purpose, created_at) VALUES ({{$json.structured.name || 'NULL'}}, {{$json.structured.email || 'NULL'}}, {{$json.structured.duration || 'NULL'}}, {{$json.structured.date || 'NULL'}}, {{$json.structured.time || 'NULL'}}, {{$json.structured.purpose || 'NULL'}}, NOW());"
+      },
+      "id": "db",
+      "name": "Store in DB",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [1840, 420],
+      "notes": "Configure Postgres credentials. Create table 'appointments' accordingly."
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { response: $json.reply || 'You are all set! I have scheduled it and sent you an email.' } }}"
+      },
+      "id": "respond",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [2080, 420]
+    }
+  ],
+  "connections": {
+    "Webhook": { "main": [[ { "node": "Extract Fields", "type": "main", "index": 0 } ]] },
+    "Extract Fields": { "main": [[ { "node": "Groq LLM (HTTP)", "type": "main", "index": 0 } ]] },
+    "Groq LLM (HTTP)": { "main": [[ { "node": "Parse LLM Output", "type": "main", "index": 0 } ]] },
+    "Parse LLM Output": { "main": [[ { "node": "Missing Required Fields?", "type": "main", "index": 0 } ]] },
+    "Missing Required Fields?": {
+      "main": [
+        [ { "node": "Ask for Missing Info", "type": "main", "index": 0 } ],
+        [ { "node": "Google Calendar - Create Event", "type": "main", "index": 0 } ]
+      ]
+    },
+    "Ask for Missing Info": { "main": [[ { "node": "Respond to Webhook", "type": "main", "index": 0 } ]] },
+    "Google Calendar - Create Event": { "main": [[ { "node": "Email Confirmation", "type": "main", "index": 0 } ]] },
+    "Email Confirmation": { "main": [[ { "node": "Store in DB", "type": "main", "index": 0 } ]] },
+    "Store in DB": { "main": [[ { "node": "Respond to Webhook", "type": "main", "index": 0 } ]] }
+  },
+  "settings": { "executionOrder": "v1" }
+}
