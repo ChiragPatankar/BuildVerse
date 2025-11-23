@@ -133,7 +133,7 @@ const Contact = () => {
               className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-gray-400 leading-relaxed"
             >
               Whether you need MVP development, AI voice agents, business process automation, or AI business intelligence, 
-              we're here to help. Tell us what you're trying to achieve, and we'll show you how our enterprise AI solutions 
+              we&apos;re here to help. Tell us what you&apos;re trying to achieve, and we&apos;ll show you how our enterprise AI solutions 
               can make it happen.
             </motion.p>
           </div>

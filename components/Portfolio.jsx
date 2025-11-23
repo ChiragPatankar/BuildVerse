@@ -154,7 +154,7 @@ const Portfolio = () => {
               className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-gray-400 leading-relaxed"
             >
               See how our enterprise AI solutions helped businesses like yours save time, cut costs, 
-              and serve customers better. These aren't just case studies—they're real outcomes from 
+              and serve customers better. These aren&apos;t just case studies—they&apos;re real outcomes from 
               real companies using AI automation, AI voice agents, and business intelligence tools.
             </motion.p>
           </div>
@@ -279,7 +279,7 @@ const Portfolio = () => {
               </h3>
               <p className="text-slate-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
                 Whether you need MVP development, AI voice agents, business process automation, or AI business intelligence, 
-                we'll help you find the right solution. Let's talk about your goals and see how enterprise AI solutions 
+                we&apos;ll help you find the right solution. Let&apos;s talk about your goals and see how enterprise AI solutions 
                 can help you save time and grow your business.
               </p>
               <motion.a

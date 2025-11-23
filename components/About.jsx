@@ -155,7 +155,7 @@ const About = () => {
                   </h3>
                   <p className="text-base sm:text-lg text-slate-700 dark:text-gray-300 leading-relaxed">
                     We believe every business—big or small—deserves enterprise AI solutions that actually work. 
-                    That's why we build AI automation, AI voice agents, and business intelligence tools that 
+                    That&apos;s why we build AI automation, AI voice agents, and business intelligence tools that 
                     are easy to understand, simple to use, and proven to deliver results. No PhD required, 
                     just real solutions that help you save time and grow your business.
                   </p>
