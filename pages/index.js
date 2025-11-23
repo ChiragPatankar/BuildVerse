@@ -105,7 +105,7 @@ export default function Home() {
         />
         <meta 
           name="description" 
-          content="Transform your business with BuildVerse's enterprise AI solutions. Expert MVP development, AI voice agents, intelligent automation, and custom AI implementations. Trusted by 50+ enterprise clients worldwide." 
+          content="Save time and grow your business with BuildVerse's enterprise AI solutions. Get instant customer support with AI voice agents, automate repetitive tasks with business process automation, and make smarter decisions with AI business intelligence. Expert MVP development for fast results. Trusted by 50+ businesses worldwide." 
         />
         <meta 
           name="keywords" 
@@ -121,7 +121,7 @@ export default function Home() {
           <meta property="og:url" content="https://buildverse.studio/" />
           <meta property="og:site_name" content="BuildVerse" />
           <meta property="og:title" content="BuildVerse - Enterprise AI Solutions | MVP Development & AI Voice Agents" />
-          <meta property="og:description" content="Transform your business with enterprise AI solutions. Expert MVP development, AI voice agents, and intelligent automation. Trusted by 50+ enterprise clients." />
+          <meta property="og:description" content="Save time and grow your business with enterprise AI solutions. Get instant support with AI voice agents, automate workflows with business process automation, and make smarter decisions with AI business intelligence. Expert MVP development. Trusted by 50+ businesses." />
           <meta property="og:image" content="https://buildverse.studio/logo.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -132,7 +132,7 @@ export default function Home() {
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:url" content="https://buildverse.studio/" />
           <meta name="twitter:title" content="BuildVerse - Enterprise AI Solutions | MVP Development & AI Voice Agents" />
-          <meta name="twitter:description" content="Transform your business with enterprise AI solutions. Expert MVP development, AI voice agents, and intelligent automation." />
+          <meta name="twitter:description" content="Save time and grow your business with enterprise AI solutions. AI voice agents for instant support, business process automation to eliminate busywork, and AI business intelligence for smarter decisions. Expert MVP development." />
           <meta name="twitter:image" content="https://buildverse.studio/logo.png" />
           <meta name="twitter:image:alt" content="BuildVerse AI Innovation Studio Logo" />
           <meta name="twitter:creator" content="@_BuildVerse_" />

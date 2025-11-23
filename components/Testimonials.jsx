@@ -91,10 +91,12 @@ const Testimonials = () => {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            Trusted by Industry Leaders
+            See What Our Clients Say
           </h2>
           <p className="text-lg text-slate-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Practical outcomes from teams in fintech, SaaS, logistics, healthcare, and retail
+            Real results from businesses like yours—from startups to enterprise companies across 
+            fintech, SaaS, logistics, healthcare, and retail. See how our enterprise AI solutions 
+            helped them save time and grow.
           </p>
         </motion.div>
 

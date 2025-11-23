@@ -33,7 +33,7 @@ const Portfolio = () => {
     {
       icon: FiMessageSquare,
       title: 'AI Customer Support Platform',
-      description: 'Multi-tenant chat support system with real-time AI assistance, handling 10,000+ daily queries with 95% satisfaction rate. Built with React, Node.js, and Google Gemini API.',
+      description: 'A business was drowning in customer questions. We built an AI automation system that answers 10,000+ questions daily with 95% customer satisfaction—freeing up their team to focus on bigger problems.',
       category: 'Conversational AI',
       metrics: [
         { label: 'Response Time', value: '<30s' },
@@ -49,7 +49,7 @@ const Portfolio = () => {
     {
       icon: FiBarChart2,
       title: 'Predictive Analytics Engine',
-      description: 'Real-time business intelligence platform providing predictive insights for inventory and sales forecasting.',
+      description: 'A retailer was guessing how much inventory to order. Our AI business intelligence tool now predicts what they\'ll need, reducing waste and preventing stockouts—helping them make smarter decisions with their data.',
       category: 'Business Intelligence',
       metrics: [
         { label: 'Accuracy', value: '92%' },
@@ -62,7 +62,7 @@ const Portfolio = () => {
     {
       icon: FiCpu,
       title: 'Voice-Activated Sales System',
-      description: 'AI-powered voice agent that qualifies leads, schedules meetings, and automates follow-ups.',
+      description: 'A sales team was missing leads because they couldn\'t answer every call. Our AI voice agents now handle initial conversations, qualify leads, and book meetings—helping them close 45% more deals.',
       category: 'Voice AI',
       metrics: [
         { label: 'Leads Qualified', value: '5K+' },
@@ -75,7 +75,7 @@ const Portfolio = () => {
     {
       icon: FiTrendingUp,
       title: 'Enterprise Workflow Automation',
-      description: 'End-to-end automation platform streamlining operations across multiple departments.',
+      description: 'A company was spending 200 hours per month on manual data entry. Our business process automation now handles it all automatically, saving time and eliminating errors—so their team can focus on growth.',
       category: 'Process Automation',
       metrics: [
         { label: 'Time Saved', value: '200h/mo' },
@@ -88,7 +88,7 @@ const Portfolio = () => {
     {
       icon: FiLayers,
       title: 'AI Content Generation Suite',
-      description: 'Advanced NLP system generating high-quality marketing content and product descriptions at scale.',
+      description: 'A marketing team was spending weeks writing product descriptions. Our AI automation now creates high-quality content 10x faster, letting them focus on strategy instead of writing.',
       category: 'Content AI',
       metrics: [
         { label: 'Content Pieces', value: '100K+' },
@@ -101,7 +101,7 @@ const Portfolio = () => {
     {
       icon: FiTarget,
       title: 'Personalization Recommendation Engine',
-      description: 'Machine learning-powered recommendation system driving engagement and revenue growth.',
+      description: 'An e-commerce site was showing the same products to everyone. Our AI business intelligence tool now personalizes recommendations for each customer, increasing sales by 28% and keeping shoppers engaged.',
       category: 'ML Systems',
       metrics: [
         { label: 'Engagement', value: '+35%' },
@@ -147,13 +147,15 @@ const Portfolio = () => {
               variants={itemVariants}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6 leading-tight"
             >
-              Proven Results Across Industries
+              Real Results From Real Businesses
             </motion.h2>
             <motion.p
               variants={itemVariants}
               className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-gray-400 leading-relaxed"
             >
-              Real-world AI implementations delivering measurable business impact for our enterprise clients.
+              See how our enterprise AI solutions helped businesses like yours save time, cut costs, 
+              and serve customers better. These aren't just case studies—they're real outcomes from 
+              real companies using AI automation, AI voice agents, and business intelligence tools.
             </motion.p>
           </div>
 
@@ -273,10 +275,12 @@ const Portfolio = () => {
           >
             <div className="bg-gradient-to-r from-primary-blue/10 to-primary-purple/10 border-2 border-primary-blue/30 rounded-2xl p-8 md:p-12 text-center shadow-sm">
               <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-4">
-                Ready to Build Your Success Story?
+                Ready to See What AI Can Do for You?
               </h3>
               <p className="text-slate-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-                Let&apos;s discuss how AI can transform your business operations and drive measurable results.
+                Whether you need MVP development, AI voice agents, business process automation, or AI business intelligence, 
+                we'll help you find the right solution. Let's talk about your goals and see how enterprise AI solutions 
+                can help you save time and grow your business.
               </p>
               <motion.a
                 href="#contact"
@@ -284,7 +288,7 @@ const Portfolio = () => {
                 whileTap={{ scale: 0.98 }}
                 className="inline-block px-8 py-4 bg-primary-blue hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-primary-blue/20"
               >
-                Start Your Project
+                Get Your Free Consultation
               </motion.a>
             </div>
           </motion.div>

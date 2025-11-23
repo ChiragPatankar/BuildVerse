@@ -68,10 +68,10 @@ const Hero = () => {
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight"
               >
                 <span className="block text-slate-900 dark:text-white leading-tight sm:leading-[1.1]">
-                  Turning Ideas Into
+                  Save Time, Grow Your Business
                 </span>
                 <span className="block mt-2 bg-gradient-to-r from-primary-blue via-blue-400 to-primary-purple bg-clip-text text-transparent leading-tight sm:leading-[1.1]">
-                  Intelligent Realities
+                  With AI That Actually Works
                 </span>
               </motion.h1>
 
@@ -80,8 +80,9 @@ const Hero = () => {
                 variants={itemVariants}
                 className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed font-light"
               >
-                Empowering businesses with cutting-edge artificial intelligence solutions
-                that drive innovation, efficiency, and growth.
+                Stop losing customers to slow responses. Stop wasting hours on repetitive tasks. 
+                Get instant support, automate your workflows, and make smarter decisions—all with 
+                enterprise AI solutions that are simple to use and proven to work.
               </motion.p>
 
             {/* CTA Buttons */}

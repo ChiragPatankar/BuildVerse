@@ -33,45 +33,45 @@ const Services = () => {
     {
       icon: FiCpu,
       title: 'MVP Development',
-      description: 'Transform your vision into market-ready products with AI-driven architecture and rapid prototyping.',
+      description: 'Got a great idea? We help you build it fast and test it with real customers. Our MVP development process gets your product to market quickly, so you can start learning what works—and what doesn\'t—without spending months in development.',
       features: [
-        'AI-Powered Architecture',
-        'Rapid Time-to-Market',
-        'Scalable Infrastructure',
-        'Technical Validation',
+        'Get to Market Faster',
+        'Test Ideas Before Big Investment',
+        'Build on a Solid Foundation',
+        'Validate Your Business Model',
       ],
     },
     {
       icon: FiMic,
       title: 'AI Voice Agents',
-      description: 'Deploy intelligent conversational AI that automates customer interactions with natural language understanding.',
+      description: 'Never miss a call or leave a customer waiting. Our AI voice agents answer questions, book appointments, and handle support 24/7—just like having a team member who never sleeps. Perfect for businesses that want instant customer support without hiring more staff.',
       features: [
-        'Natural Language Processing',
-        'Multi-language Support',
-        '24/7 Automated Support',
-        'Seamless CRM Integration',
+        'Answer Calls Anytime, Day or Night',
+        'Speak Multiple Languages',
+        'Never Miss a Customer',
+        'Works With Your Existing Tools',
       ],
     },
     {
       icon: FiZap,
-      title: 'Process Automation',
-      description: 'Streamline operations and eliminate manual work with intelligent workflow automation and smart triggers.',
+      title: 'Business Process Automation',
+      description: 'Stop doing the same tasks over and over. Our business process automation handles your repetitive work—like sending follow-up emails, updating records, or processing orders—so your team can focus on what actually grows your business.',
       features: [
-        'Workflow Optimization',
-        'Process Intelligence',
-        'Smart Decision Making',
-        'System Integration',
+        'Eliminate Repetitive Tasks',
+        'Reduce Human Error',
+        'Speed Up Your Workflows',
+        'Connect All Your Systems',
       ],
     },
     {
       icon: FiBarChart2,
-      title: 'Business Intelligence',
-      description: 'Make data-driven decisions with AI-powered analytics, predictive insights, and custom dashboards.',
+      title: 'AI Business Intelligence',
+      description: 'Make smarter decisions with data you can actually understand. Our AI business intelligence tools turn your numbers into clear insights, showing you what\'s working, what\'s not, and what to do next—without needing a data scientist on staff.',
       features: [
-        'Predictive Analytics',
-        'Real-time Reporting',
-        'Custom Dashboards',
-        'Advanced Visualization',
+        'See Trends Before They Happen',
+        'Get Reports That Make Sense',
+        'Custom Dashboards for Your Team',
+        'Turn Data Into Action Plans',
       ],
     },
   ]
@@ -110,13 +110,15 @@ const Services = () => {
               variants={itemVariants}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6 leading-tight"
             >
-              Enterprise AI Solutions
+              Enterprise AI Solutions That Work for You
             </motion.h2>
             <motion.p
               variants={itemVariants}
               className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-gray-400 leading-relaxed"
             >
-              Comprehensive artificial intelligence services designed to transform your business operations and drive measurable results.
+              From MVP development to full-scale AI automation, we offer enterprise AI solutions that 
+              help you serve customers better, work smarter, and grow faster. Every solution is built 
+              to deliver real results you can measure.
             </motion.p>
           </div>
 
@@ -167,7 +169,7 @@ const Services = () => {
           >
             <div className="inline-flex flex-col sm:flex-row items-center gap-4">
               <p className="text-slate-600 dark:text-gray-400 text-lg">
-                Ready to transform your business with AI?
+                Ready to save time and grow your business?
               </p>
               <motion.a
                 href="#contact"
@@ -175,7 +177,7 @@ const Services = () => {
                 whileTap={{ scale: 0.98 }}
                 className="px-8 py-3 bg-primary-blue hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-primary-blue/20"
               >
-                Schedule Consultation
+                Get Started Today
               </motion.a>
             </div>
           </motion.div>

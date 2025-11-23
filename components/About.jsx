@@ -32,18 +32,18 @@ const About = () => {
   const pillars = [
     {
       icon: FiTarget,
-      title: 'Innovation First',
-      description: 'Leveraging cutting-edge AI research and technology to solve complex business challenges with creative, forward-thinking solutions.',
+      title: 'Solutions That Make Sense',
+      description: 'No tech jargon, no overcomplicated systems. We build AI automation and enterprise AI solutions that solve real problems your team faces every day—like handling customer questions faster or automating repetitive tasks.',
     },
     {
       icon: FiTrendingUp,
-      title: 'Measurable Impact',
-      description: 'Delivering quantifiable results with data-driven strategies that directly contribute to your bottom line and operational efficiency.',
+      title: 'Results You Can See',
+      description: 'We measure success by what matters to you: time saved, money saved, happier customers. Our business process automation and AI business intelligence tools show you exactly how they\'re helping your bottom line.',
     },
     {
       icon: FiLayers,
-      title: 'Enterprise Scale',
-      description: 'Building robust, scalable AI infrastructure designed to grow with your organization from pilot to full deployment.',
+      title: 'Built to Grow With You',
+      description: 'Start small, scale big. Whether you\'re testing an MVP development or rolling out company-wide AI voice agents, our solutions grow as your business grows—without breaking the bank.',
     },
   ]
 
@@ -81,14 +81,16 @@ const About = () => {
               variants={itemVariants}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6 leading-tight"
             >
-              Transforming Business Through Artificial Intelligence
+              We Help Businesses Do More With Less
             </motion.h2>
             <motion.p
               variants={itemVariants}
               className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-gray-400 leading-relaxed"
             >
-              We partner with forward-thinking organizations to implement enterprise-grade AI solutions
-              that drive innovation, optimize operations, and create lasting competitive advantages.
+              Think of us as your AI partner who speaks your language. We build enterprise AI solutions 
+              that save you time, cut costs, and help you serve customers better—without the technical 
+              headaches. From AI voice agents that answer calls 24/7 to business process automation 
+              that handles your busywork, we make AI work for you.
             </motion.p>
           </div>
 
@@ -152,10 +154,10 @@ const About = () => {
                     Our Mission
                   </h3>
                   <p className="text-base sm:text-lg text-slate-700 dark:text-gray-300 leading-relaxed">
-                    To democratize enterprise AI by making advanced artificial intelligence accessible, 
-                    practical, and transformative for businesses of all sizes. We believe in creating 
-                    AI solutions that augment human capabilities, drive efficiency, and unlock new 
-                    opportunities for growth.
+                    We believe every business—big or small—deserves enterprise AI solutions that actually work. 
+                    That's why we build AI automation, AI voice agents, and business intelligence tools that 
+                    are easy to understand, simple to use, and proven to deliver results. No PhD required, 
+                    just real solutions that help you save time and grow your business.
                   </p>
                 </div>
               </div>

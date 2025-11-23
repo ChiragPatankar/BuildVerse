@@ -126,13 +126,15 @@ const Contact = () => {
               variants={itemVariants}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6 leading-tight"
             >
-              Let&apos;s Discuss Your Project
+              Let&apos;s Talk About Your Goals
             </motion.h2>
             <motion.p
               variants={itemVariants}
               className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-gray-400 leading-relaxed"
             >
-              Ready to transform your business with AI? Schedule a consultation with our experts.
+              Whether you need MVP development, AI voice agents, business process automation, or AI business intelligence, 
+              we're here to help. Tell us what you're trying to achieve, and we'll show you how our enterprise AI solutions 
+              can make it happen.
             </motion.p>
           </div>
 
