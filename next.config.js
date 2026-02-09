@@ -22,6 +22,20 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  
+  // Exclude buildverse-flowforge from Next.js compilation (it's a separate project)
+  webpack: (config, { isServer }) => {
+    config.watchOptions = {
+      ...config.watchOptions,
+      ignored: ['**/node_modules/**', '**/buildverse-flowforge/**'],
+    }
+    return config
+  },
+  
+  // Exclude from TypeScript compilation
+  typescript: {
+    ignoreBuildErrors: false,
+  },
 }
 
 module.exports = nextConfig
