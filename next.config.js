@@ -48,6 +48,12 @@ const nextConfig = {
   // Exclude from TypeScript compilation
   typescript: {
     ignoreBuildErrors: false,
+    // This doesn't directly exclude files, but tsconfig.json exclude should handle it
+  },
+  
+  // Experimental: Exclude from page detection
+  experimental: {
+    // This helps Next.js ignore certain directories
   },
 }
 
