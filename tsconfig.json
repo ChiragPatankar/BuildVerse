@@ -18,13 +18,22 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "pages/**/*.ts",
+    "pages/**/*.tsx",
+    "components/**/*.ts",
+    "components/**/*.tsx",
+    "styles/**/*.ts",
+    "styles/**/*.tsx",
+    "functions/**/*.ts",
+    "functions/**/*.tsx"
+  ],
   "exclude": [
     "node_modules",
     "functions",
     "buildverse-flowforge",
-    "buildverse-flowforge/**/*"
+    "buildverse-flowforge/**",
+    "**/buildverse-flowforge/**"
   ]
 }
-
-
