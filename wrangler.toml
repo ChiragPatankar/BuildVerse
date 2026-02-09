@@ -1,4 +1,7 @@
-name = "buildverse-studio"
+name = "buildverse"
 compatibility_date = "2025-01-12"
 pages_build_output_dir = "out"
 
+[[r2_buckets]]
+bucket_name = "buildverse-videos"
+binding = "buildverse_videos"

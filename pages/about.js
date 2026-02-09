@@ -7,8 +7,56 @@ import { FiTrendingUp, FiUsers, FiAward, FiZap, FiLinkedin, FiTwitter, FiGithub,
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
+const teamMembers = [
+  { 
+    id: 'preksha', 
+    name: 'Preksha Dewoolkar', 
+    role: 'UI Designer | AI Engineer', 
+    tagline: 'Clean Interfaces.', 
+    image: '/team/preksha.png', 
+    linkedin: 'https://lnkd.in/dJtzPjwM', 
+    twitter: 'https://lnkd.in/dnMSVZ9B' 
+  },
+  { 
+    id: 'rahul', 
+    name: 'Rahul Sutar', 
+    role: 'Business Executive', 
+    tagline: 'Growth & Strategy', 
+    image: '/team/rahul.png', 
+    linkedin: 'https://lnkd.in/duyZXUkP', 
+    twitter: 'https://x.com/RAHULYSUTAR' 
+  },
+  { 
+    id: 'samruddhi', 
+    name: 'Samruddhi Pande', 
+    role: 'Social Media Manager', 
+    tagline: 'Quiet Strategist.', 
+    image: '/team/samruddhi.png', 
+    linkedin: 'https://lnkd.in/dPz4GyJd', 
+    twitter: 'https://x.com/Samruddhi_0' 
+  },
+  { 
+    id: 'karan', 
+    name: 'Karan Patkar', 
+    role: 'Graphics Designer', 
+    tagline: 'Tech Meets Design', 
+    image: '/team/karan.png', 
+    linkedin: 'https://lnkd.in/daZBfdzY', 
+    twitter: 'https://lnkd.in/d9Cekhxz' 
+  },
+  { 
+    id: 'shatakshi', 
+    name: 'Shatakshi Jadhav', 
+    role: 'Social Media Associate', 
+    tagline: 'Scaling Reach.', 
+    image: '/team/shatakshi.jpeg', 
+    linkedin: '', 
+    twitter: '' 
+  },
+]
+
 export default function AboutPage() {
-  const [imageSrc, setImageSrc] = useState('/founder.png')
+  const [imageSrc, setImageSrc] = useState('/chirag.png')
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -130,7 +178,7 @@ export default function AboutPage() {
                       sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover object-top"
                       priority
-                      onError={() => setImageSrc((prev) => (prev.includes('founder.png') ? '/founder/me.jpg' : '/logo.png'))}
+                      onError={() => setImageSrc('/logo.png')}
                     />
                   </div>
                   <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">Chirag Patankar</h2>
@@ -230,6 +278,64 @@ export default function AboutPage() {
                   </div>
                 </div>
               </motion.div>
+            </div>
+          </section>
+
+          {/* Core Team Grid */}
+          <section className="mb-16 md:mb-20">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-3">Core Team</h2>
+              <p className="text-slate-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">Meet the talented individuals making BuildVerse possible</p>
+              <div className="h-1.5 w-20 bg-primary-blue mx-auto rounded-full"></div>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+              {teamMembers.map((member, idx) => (
+                <motion.div 
+                  key={member.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="bg-slate-50 dark:bg-white/5 border-2 border-slate-300 dark:border-white/10 rounded-2xl p-5 group hover:border-primary-blue transition-all hover:shadow-xl"
+                >
+                  <div className="relative aspect-square rounded-xl overflow-hidden mb-4 bg-slate-100 dark:bg-white/5">
+                    <Image 
+                      src={member.image} 
+                      alt={member.name} 
+                      fill 
+                      className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                      style={{ objectPosition: 'center top' }}
+                      unoptimized
+                    />
+                  </div>
+                  <h3 className="font-bold text-xl dark:text-white mb-1">{member.name}</h3>
+                  <p className="text-primary-blue text-xs font-bold uppercase mb-2 tracking-wider">{member.role}</p>
+                  <p className="text-slate-500 dark:text-gray-400 text-sm italic mb-4">"{member.tagline}"</p>
+                  <div className="flex gap-3 pt-4 border-t border-slate-200 dark:border-white/10">
+                    {member.linkedin && (
+                      <a 
+                        href={member.linkedin} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-slate-400 hover:text-primary-blue transition-colors"
+                      >
+                        <FiLinkedin size={18}/>
+                      </a>
+                    )}
+                    {member.twitter && (
+                      <a 
+                        href={member.twitter} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-slate-400 hover:text-primary-blue transition-colors"
+                      >
+                        <FiTwitter size={18}/>
+                      </a>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </section>
 

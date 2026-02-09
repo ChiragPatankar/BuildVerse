@@ -1,0 +1,101 @@
+# BuildVerse AI Studio - llms.txt
+# Optimized for AI crawlers and LLM readability
+
+## About BuildVerse
+
+BuildVerse is an AI studio specializing in MVP development, voice agents, and workflow automation for B2B SaaS companies. We ship production-ready products in 4-8 weeks.
+
+## Primary Services
+
+1. MVP Development (4-8 weeks)
+   - Rapid prototyping and iteration
+   - AI-first architecture
+   - Production-ready codebases
+
+2. AI Voice Agents (2-4 weeks)
+   - 24/7 call handling
+   - Lead qualification
+   - Appointment booking
+   - CRM integration
+
+3. Workflow Automation (2-3 weeks)
+   - Process automation
+   - Tool integration
+   - Data pipeline automation
+
+4. Analytics & Dashboards (3-5 weeks)
+   - Custom dashboards
+   - Predictive analytics
+   - Real-time insights
+
+## Target Industries
+
+- B2B SaaS companies
+- Tech-first SMBs
+- Mid-market enterprises
+- Healthcare
+- Fintech
+- E-commerce
+- Logistics
+
+## Key Differentiators
+
+- Founder-led execution
+- End-to-end capability
+- Cross-industry experience
+- Fast iteration cycles (weekly milestones)
+- Production-ready code from day one
+
+## Contact Information
+
+- Email: chirag@buildverse.studio
+- Phone: +91-9322529729
+- Website: https://buildverse.studio
+- Location: Mumbai, India
+- Service Regions: US, Middle East, India, UK
+
+## Primary Keywords
+
+AI studio, voice agents, B2B SaaS, workflow automation, MVP development, AI voice assistants, conversational AI, business automation, rapid prototyping, lead qualification, appointment booking AI, production-ready MVPs, intelligent automation, workflow automations
+
+## Key Pages
+
+- Home: https://buildverse.studio/
+- Demos: https://buildverse.studio/demos
+- About: https://buildverse.studio/about
+- Case Studies: https://buildverse.studio/case-studies
+
+## Technology Stack
+
+- React, Next.js
+- Node.js, TypeScript
+- AI/ML: Gemini API, OpenAI
+- Voice: WebRTC, Speech Recognition
+- Databases: PostgreSQL, Supabase
+- Cloud: Cloudflare Pages, R2
+
+## Typical Project Timeline
+
+Week 1: Discovery and scoping
+Weeks 2-3: Prototype development
+Weeks 4-6: Production deployment
+Ongoing: Optimization and iteration
+
+## Results Delivered
+
+- 10,000+ daily calls handled by voice agents
+- 200+ hours saved monthly through automation
+- 95%+ customer satisfaction
+- 60% cost reduction in support operations
+- 4-8 week delivery timelines
+
+## Social Proof
+
+- 50+ businesses served
+- Series A SaaS clients (US)
+- E-commerce brands (India)
+- Fintech startups (EU)
+- HealthTech platforms (UK)
+- Logistics enterprises (APAC)
+
+

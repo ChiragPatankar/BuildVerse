@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #060a14;
+  color: #e2e8f0;
+}
+
+/* ─── Custom Scrollbar ─────────────────────────────────────── */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 5px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.12);
+  border-radius: 99px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.25);
+}
+
+/* ─── React Flow Overrides ─────────────────────────────────── */
+.react-flow__attribution {
+  display: none !important;
+}
+
+.react-flow__edge-path {
+  stroke-linecap: round;
+}
+
+.react-flow__handle {
+  transition: all 0.15s ease;
+}
+
+.react-flow__handle:hover {
+  transform: scale(1.5);
+}
+
+.react-flow__node {
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.react-flow__node.selected {
+  z-index: 10 !important;
+}
+
+.react-flow__selection {
+  background: rgba(59, 130, 246, 0.06) !important;
+  border: 1px solid rgba(59, 130, 246, 0.25) !important;
+  border-radius: 8px;
+}
+
+/* ─── Textarea styling ─────────────────────────────────────── */
+textarea {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.12) transparent;
+}
+
+textarea::-webkit-scrollbar {
+  width: 5px;
+}
+textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+textarea::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.12);
+  border-radius: 99px;
+}
+textarea::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.25);
+}

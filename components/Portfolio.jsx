@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FiArrowUpRight, FiBarChart2, FiMessageSquare, FiCpu, FiTrendingUp, FiLayers, FiTarget, FiExternalLink, FiGithub } from 'react-icons/fi'
+import { FiArrowUpRight, FiBarChart2, FiMessageSquare, FiCpu, FiTrendingUp, FiLayers, FiTarget, FiExternalLink, FiMapPin } from 'react-icons/fi'
 
 const Portfolio = () => {
   const ref = useRef(null)
@@ -33,83 +33,95 @@ const Portfolio = () => {
     {
       icon: FiMessageSquare,
       title: 'AI Customer Support Platform',
-      description: 'A business was drowning in customer questions. We built an AI automation system that answers 10,000+ questions daily with 95% customer satisfaction—freeing up their team to focus on bigger problems.',
-      category: 'Conversational AI',
+      clientType: 'Series A B2B SaaS',
+      region: 'US',
+      context: 'Support team was overwhelmed with 500+ daily tickets, mostly repetitive questions. Response times were 4+ hours.',
+      solution: 'Built a conversational AI that handles Tier 1 support, integrates with their knowledge base, and escalates complex issues to humans.',
+      techStack: 'React, Node.js, Gemini AI, WebSocket',
       metrics: [
-        { label: 'Response Time', value: '<30s' },
-        { label: 'Satisfaction', value: '95%' },
+        { label: 'Daily Queries', value: '10K+' },
+        { label: 'CSAT', value: '95%' },
         { label: 'Cost Saved', value: '60%' },
       ],
-      tags: ['React', 'Node.js', 'Gemini AI', 'WebSocket'],
+      timeline: '6 weeks',
       liveDemo: 'https://274653e9.mcp-5wk.pages.dev/',
-      github: 'https://github.com/ChiragPatankar/MCP',
-      caseStudyLink: '/case-studies/ai-customer-support-platform',
       featured: true,
     },
     {
       icon: FiBarChart2,
-      title: 'Predictive Analytics Engine',
-      description: 'A retailer was guessing how much inventory to order. Our AI business intelligence tool now predicts what they\'ll need, reducing waste and preventing stockouts—helping them make smarter decisions with their data.',
-      category: 'Business Intelligence',
+      title: 'Predictive Inventory Engine',
+      clientType: 'Multi-brand E-commerce',
+      region: 'India',
+      context: 'Guessing inventory needs led to $2M+ in annual waste from overstock and lost sales from stockouts.',
+      solution: 'ML model trained on 3 years of sales data, seasonality, and external factors. Now predicts weekly demand per SKU.',
+      techStack: 'Python, TensorFlow, BigQuery',
       metrics: [
         { label: 'Accuracy', value: '92%' },
         { label: 'Data Points', value: '1M+' },
-        { label: 'Active Users', value: '500+' },
+        { label: 'Waste Reduced', value: '40%' },
       ],
-      tags: ['Predictive Analytics', 'Big Data', 'ML Models'],
-      caseStudyLink: '/case-studies/predictive-analytics-engine',
+      timeline: '8 weeks',
+      liveDemo: 'https://v2kec3t6pzojmbz448udb7.streamlit.app/',
     },
     {
       icon: FiCpu,
-      title: 'Voice-Activated Sales System',
-      description: 'A sales team was missing leads because they couldn\'t answer every call. Our AI voice agents now handle initial conversations, qualify leads, and book meetings—helping them close 45% more deals.',
-      category: 'Voice AI',
+      title: 'Voice-Activated Lead Qualifier',
+      clientType: 'Mid-Market Sales Team',
+      region: 'US',
+      context: 'SDRs missed 60% of inbound calls. Leads went cold before anyone followed up.',
+      solution: 'AI voice agent answers calls instantly, asks qualifying questions, and books meetings directly in Calendly.',
+      techStack: 'Twilio, OpenAI, CRM Integration',
       metrics: [
         { label: 'Leads Qualified', value: '5K+' },
         { label: 'Conversion Lift', value: '+45%' },
         { label: 'Meetings Booked', value: '2K+' },
       ],
-      tags: ['Voice Recognition', 'Sales Automation', 'CRM'],
-      caseStudyLink: '/case-studies/voice-activated-sales-system',
+      timeline: '4 weeks',
     },
     {
       icon: FiTrendingUp,
-      title: 'Enterprise Workflow Automation',
-      description: 'A company was spending 200 hours per month on manual data entry. Our business process automation now handles it all automatically, saving time and eliminating errors—so their team can focus on growth.',
-      category: 'Process Automation',
+      title: 'Operations Workflow Automation',
+      clientType: 'Logistics Enterprise',
+      region: 'APAC',
+      context: 'Operations team spent 200+ hours/month on manual data entry across 5 disconnected systems.',
+      solution: 'Automated workflow connecting ERP, warehouse, shipping, and finance systems. Human review only for exceptions.',
+      techStack: 'n8n, Custom APIs, PostgreSQL',
       metrics: [
-        { label: 'Time Saved', value: '200h/mo' },
+        { label: 'Hours Saved', value: '200/mo' },
         { label: 'Processes', value: '50+' },
-        { label: 'Efficiency Gain', value: '+70%' },
+        { label: 'Error Rate', value: '-90%' },
       ],
-      tags: ['RPA', 'Workflow', 'Integration'],
-      caseStudyLink: '/case-studies/enterprise-workflow-automation',
+      timeline: '5 weeks',
     },
     {
       icon: FiLayers,
-      title: 'AI Content Generation Suite',
-      description: 'A marketing team was spending weeks writing product descriptions. Our AI automation now creates high-quality content 10x faster, letting them focus on strategy instead of writing.',
-      category: 'Content AI',
+      title: 'Marketing Content Generator',
+      clientType: 'Retail Group',
+      region: 'North America',
+      context: 'Marketing team took 2 weeks to produce product descriptions for 500 new SKUs each quarter.',
+      solution: 'AI pipeline that generates SEO-optimized descriptions, social copy, and email content from product data.',
+      techStack: 'GPT-4, Custom Fine-tuning',
       metrics: [
         { label: 'Content Pieces', value: '100K+' },
         { label: 'Quality Score', value: '94%' },
-        { label: 'Speed Increase', value: '10x' },
+        { label: 'Speed', value: '10x' },
       ],
-      tags: ['NLP', 'Content Generation', 'Marketing'],
-      caseStudyLink: '/case-studies/ai-content-generation-suite',
+      timeline: '4 weeks',
     },
     {
       icon: FiTarget,
-      title: 'Personalization Recommendation Engine',
-      description: 'An e-commerce site was showing the same products to everyone. Our AI business intelligence tool now personalizes recommendations for each customer, increasing sales by 28% and keeping shoppers engaged.',
-      category: 'ML Systems',
+      title: 'Personalized Recommendations',
+      clientType: 'D2C Fashion Brand',
+      region: 'EU',
+      context: 'Same homepage for every visitor. No personalization despite having rich customer data.',
+      solution: 'Real-time recommendation engine showing personalized products based on browse history and purchase patterns.',
+      techStack: 'Collaborative Filtering, Redis',
       metrics: [
         { label: 'Engagement', value: '+35%' },
         { label: 'Revenue Lift', value: '+28%' },
         { label: 'Active Users', value: '1M+' },
       ],
-      tags: ['Recommendation', 'Personalization', 'ML'],
-      caseStudyLink: '/case-studies/personalization-recommendation-engine',
+      timeline: '6 weeks',
     },
   ]
 
@@ -147,15 +159,14 @@ const Portfolio = () => {
               variants={itemVariants}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6 leading-tight"
             >
-              Real Results From Real Businesses
+              Real Projects, Real Results
             </motion.h2>
             <motion.p
               variants={itemVariants}
               className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-gray-400 leading-relaxed"
             >
-              See how our enterprise AI solutions helped businesses like yours save time, cut costs, 
-              and serve customers better. These aren&apos;t just case studies—they&apos;re real outcomes from 
-              real companies using AI automation, AI voice agents, and business intelligence tools.
+              Selected work from SaaS, e-commerce, logistics, and retail clients. 
+              Each project includes the problem, our approach, and measurable outcomes.
             </motion.p>
           </div>
 
@@ -168,26 +179,46 @@ const Portfolio = () => {
                 whileHover={{ y: -4 }}
                 className="group relative"
               >
-                <div className="h-full bg-slate-50 dark:bg-white/5 border-2 border-slate-300 dark:border-white/10 rounded-2xl overflow-hidden hover:border-primary-blue/50 dark:hover:border-primary-blue/30 transition-all duration-300 shadow-sm">
-                  {/* Icon Header */}
+                <div className="h-full flex flex-col bg-slate-50 dark:bg-white/5 border-2 border-slate-300 dark:border-white/10 rounded-2xl overflow-hidden hover:border-primary-blue/50 dark:hover:border-primary-blue/30 transition-all duration-300 shadow-sm">
+                  {/* Header */}
                   <div className="p-6 border-b-2 border-slate-300 dark:border-white/10">
-                    <div className="w-12 h-12 rounded-lg bg-primary-blue/10 border border-primary-blue/20 flex items-center justify-center mb-4 group-hover:bg-primary-blue/20 transition-all">
-                      <project.icon className="w-6 h-6 text-primary-blue" />
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="w-12 h-12 rounded-lg bg-primary-blue/10 border border-primary-blue/20 flex items-center justify-center group-hover:bg-primary-blue/20 transition-all">
+                        <project.icon className="w-6 h-6 text-primary-blue" />
+                      </div>
+                      <div className="text-right">
+                        <div className="text-xs font-semibold text-primary-blue">{project.timeline}</div>
+                      </div>
                     </div>
-                    <span className="text-xs font-semibold text-primary-blue uppercase tracking-wider">
-                      {project.category}
-                    </span>
+                    
+                    {/* Client Info */}
+                    <div className="flex items-center space-x-2 text-xs text-slate-600 dark:text-gray-400">
+                      <span className="font-medium">{project.clientType}</span>
+                      <span>•</span>
+                      <span className="flex items-center space-x-1">
+                        <FiMapPin className="w-3 h-3" />
+                        <span>{project.region}</span>
+                      </span>
+                    </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
+                  <div className="flex-1 flex flex-col p-4 sm:p-6 space-y-4">
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary-blue transition-colors">
                       {project.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-slate-600 dark:text-gray-400 leading-relaxed">
-                      {project.description}
-                    </p>
+                    {/* Context & Solution */}
+                    <div className="space-y-3 text-xs sm:text-sm">
+                      <div>
+                        <span className="font-semibold text-slate-700 dark:text-gray-300">Challenge: </span>
+                        <span className="text-slate-600 dark:text-gray-400">{project.context}</span>
+                      </div>
+                      <div>
+                        <span className="font-semibold text-slate-700 dark:text-gray-300">Solution: </span>
+                        <span className="text-slate-600 dark:text-gray-400">{project.solution}</span>
+                      </div>
+                    </div>
 
                     {/* Metrics */}
                     <div className="grid grid-cols-3 gap-2 sm:gap-3 py-3 sm:py-4 border-t-2 border-b-2 border-slate-300 dark:border-white/10">
@@ -203,56 +234,31 @@ const Portfolio = () => {
                       ))}
                     </div>
 
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag, tagIndex) => (
-                        <span
-                          key={tagIndex}
-                          className="px-3 py-1 text-xs font-medium bg-slate-200 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-slate-700 dark:text-gray-400"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                    {/* Tech Stack */}
+                    <div className="text-xs text-slate-500 dark:text-gray-500">
+                      <span className="font-medium">Tech: </span>
+                      {project.techStack}
                     </div>
 
+                    {/* Spacer to push button to bottom */}
+                    <div className="flex-1" />
+
                     {/* Action Links */}
-                    <div className="mt-4 space-y-2">
-                      {project.caseStudyLink && (
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {project.liveDemo ? (
                         <a
-                          href={project.caseStudyLink}
-                          className="flex items-center space-x-2 text-sm font-semibold text-primary-blue group-hover:text-blue-400 transition-colors"
+                          href={project.liveDemo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center space-x-1 px-3 py-1.5 text-xs font-medium bg-primary-blue/10 hover:bg-primary-blue/20 text-primary-blue border border-primary-blue/20 rounded-lg transition-colors"
                         >
-                          <span>Read Full Case Study</span>
-                          <FiArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                          <FiExternalLink className="w-3 h-3" />
+                          <span>Live Demo</span>
                         </a>
-                      )}
-                      
-                      {/* Project Links */}
-                      {(project.liveDemo || project.github) && (
-                        <div className="flex flex-wrap gap-2 pt-2">
-                          {project.liveDemo && (
-                            <a
-                              href={project.liveDemo}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center space-x-1 px-3 py-1.5 text-xs font-medium bg-primary-blue/10 hover:bg-primary-blue/20 text-primary-blue border border-primary-blue/20 rounded-lg transition-colors"
-                            >
-                              <FiExternalLink className="w-3 h-3" />
-                              <span>Live Demo</span>
-                            </a>
-                          )}
-                          {project.github && (
-                            <a
-                              href={project.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center space-x-1 px-3 py-1.5 text-xs font-medium bg-slate-200 dark:bg-white/5 hover:bg-slate-300 dark:hover:bg-white/10 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-white/10 rounded-lg transition-colors"
-                            >
-                              <FiGithub className="w-3 h-3" />
-                              <span>GitHub</span>
-                            </a>
-                          )}
-                        </div>
+                      ) : (
+                        <span className="inline-flex items-center space-x-1 px-3 py-1.5 text-xs font-medium text-slate-400 dark:text-gray-500">
+                          Demo coming soon
+                        </span>
                       )}
                     </div>
                   </div>
@@ -275,20 +281,21 @@ const Portfolio = () => {
           >
             <div className="bg-gradient-to-r from-primary-blue/10 to-primary-purple/10 border-2 border-primary-blue/30 rounded-2xl p-8 md:p-12 text-center shadow-sm">
               <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-4">
-                Ready to See What AI Can Do for You?
+                Want Results Like These?
               </h3>
               <p className="text-slate-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-                Whether you need MVP development, AI voice agents, business process automation, or AI business intelligence, 
-                we&apos;ll help you find the right solution. Let&apos;s talk about your goals and see how enterprise AI solutions 
-                can help you save time and grow your business.
+                Book a 20-minute call and we&apos;ll walk through exactly how we&apos;d approach your specific 
+                challenge. No pitch deck—just a practical conversation about what&apos;s possible.
               </p>
               <motion.a
-                href="#contact"
+                href="https://cal.com/chirag-9yxbl2/20-min-strategy-call"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-block px-8 py-4 bg-primary-blue hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-primary-blue/20"
               >
-                Get Your Free Consultation
+                Book Your Strategy Call
               </motion.a>
             </div>
           </motion.div>

@@ -9,12 +9,30 @@ export default function Document() {
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         
-        {/* Fonts */}
+        {/* Preload critical font (Inter - most used) */}
         <link 
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800&display=swap" 
+          rel="preload" 
+          href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" 
+          as="font" 
+          type="font/woff2" 
+          crossOrigin="anonymous" 
+        />
+        
+        {/* Fonts with optimized loading */}
+        <link 
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=optional" 
           rel="stylesheet" 
         />
+        
+        {/* Fallback font stack */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
+          .font-poppins { font-family: 'Poppins', system-ui, sans-serif; }
+          .font-orbitron { font-family: 'Orbitron', system-ui, sans-serif; }
+        ` }} />
         
         {/* Favicon & App Icons */}
         <link rel="icon" href="/favicon.ico" />

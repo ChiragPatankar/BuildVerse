@@ -1,11 +1,72 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { FiTarget, FiTrendingUp, FiLayers, FiAward } from 'react-icons/fi'
+
+// Counter animation hook
+const useCountUp = (end, duration = 2000, startCounting = false) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!startCounting) return;
+    
+    let startTime;
+    let animationFrame;
+
+    const animate = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      
+      setCount(Math.floor(progress * end));
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [end, duration, startCounting]);
+
+  return count;
+};
+
+// AboutStatCard component with counting animation
+const AboutStatCard = ({ targetValue, suffix, label, startCounting, delay }) => {
+  const [shouldStart, setShouldStart] = useState(false);
+  const count = useCountUp(targetValue, 2000, shouldStart);
+
+  useEffect(() => {
+    if (startCounting) {
+      const timer = setTimeout(() => setShouldStart(true), delay);
+      return () => clearTimeout(timer);
+    }
+  }, [startCounting, delay]);
+
+  return (
+    <motion.div 
+      className="text-center"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={startCounting ? { opacity: 1, scale: 1 } : {}}
+      transition={{ duration: 0.5, delay: delay / 1000 }}
+    >
+      <motion.div 
+        className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-2"
+        animate={startCounting ? { scale: [1, 1.15, 1] } : {}}
+        transition={{ duration: 0.6, delay: (delay / 1000) + 0.3 }}
+      >
+        {count}{suffix}
+      </motion.div>
+      <div className="text-xs sm:text-sm text-slate-600 dark:text-gray-400">{label}</div>
+    </motion.div>
+  );
+};
 
 const About = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const statsRef = useRef(null)
+  const isStatsInView = useInView(statsRef, { once: true, margin: '-100px' })
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -95,21 +156,12 @@ const About = () => {
           </div>
 
           {/* Stats */}
-          <motion.div variants={itemVariants}>
+          <motion.div ref={statsRef} variants={itemVariants}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-12 p-6 sm:p-8 md:p-12 bg-slate-50 dark:bg-white/5 border-2 border-slate-300 dark:border-white/10 rounded-2xl shadow-sm">
-              {[
-                { value: '5+', label: 'Years of Excellence' },
-                { value: '100+', label: 'AI Models Deployed' },
-                { value: '50+', label: 'Enterprise Clients' },
-                { value: '99%', label: 'Client Retention' },
-              ].map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs sm:text-sm text-slate-600 dark:text-gray-400">{stat.label}</div>
-                </div>
-              ))}
+              <AboutStatCard targetValue={5} suffix="+" label="Years of Excellence" startCounting={isStatsInView} delay={0} />
+              <AboutStatCard targetValue={100} suffix="+" label="AI Models Deployed" startCounting={isStatsInView} delay={150} />
+              <AboutStatCard targetValue={50} suffix="+" label="Enterprise Clients" startCounting={isStatsInView} delay={300} />
+              <AboutStatCard targetValue={99} suffix="%" label="Client Retention" startCounting={isStatsInView} delay={450} />
             </div>
           </motion.div>
 
@@ -119,13 +171,17 @@ const About = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                whileHover={{ y: -4 }}
+                whileHover={{ y: -8, scale: 1.02 }}
                 className="group"
               >
-                <div className="h-full p-6 sm:p-8 bg-slate-50 dark:bg-white/5 border-2 border-slate-300 dark:border-white/10 rounded-2xl hover:border-primary-blue/50 dark:hover:border-primary-blue/30 transition-all duration-300 shadow-sm">
-                  <div className="w-12 h-12 rounded-xl bg-primary-blue/10 border border-primary-blue/20 flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-primary-blue/20 transition-all">
+                <div className="h-full p-6 sm:p-8 bg-slate-50 dark:bg-white/5 border-2 border-slate-300 dark:border-white/10 rounded-2xl hover:border-primary-blue/50 dark:hover:border-primary-blue/30 hover:shadow-xl hover:shadow-primary-blue/10 transition-all duration-300 shadow-sm">
+                  <motion.div 
+                    className="w-12 h-12 rounded-xl bg-primary-blue/10 border border-primary-blue/20 flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-primary-blue/20 transition-all"
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.6 }}
+                  >
                     <pillar.icon className="w-6 h-6 text-primary-blue" />
-                  </div>
+                  </motion.div>
 
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-3 sm:mb-4">
                     {pillar.title}

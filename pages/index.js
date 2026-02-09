@@ -1,9 +1,12 @@
 import Head from 'next/head'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
-import About from '@/components/About'
+import DeliveredResults from '@/components/DeliveredResults'
+import WhyBuildVerse from '@/components/WhyBuildVerse'
+import HowWeWork from '@/components/HowWeWork'
 import Services from '@/components/Services'
 import Portfolio from '@/components/Portfolio'
+import FoundersNote from '@/components/FoundersNote'
 import Testimonials from '@/components/Testimonials'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
@@ -13,63 +16,61 @@ export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-      "name": "BuildVerse",
-      "alternateName": "BuildVerse AI Studio",
-      "url": "https://buildverse.studio",
-      "logo": "https://buildverse.studio/logo.png",
-      "description": "Enterprise AI solutions provider specializing in MVP development, AI voice agents, intelligent automation, and custom AI implementations for businesses.",
-      "email": "chirag@buildverse.studio",
-      "telephone": "+91-9322529729",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Mumbai",
-        "addressCountry": "IN"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/buildverse-studio/?viewAsMember=true",
-        "https://x.com/_BuildVerse_"
-      ],
+    "name": "BuildVerse",
+    "alternateName": "BuildVerse AI Studio",
+    "url": "https://buildverse.studio",
+    "logo": "https://buildverse.studio/logo.png",
+    "description": "Founder-led AI studio shipping production-ready MVPs, voice agents, and workflow automations in 4–8 weeks. Serving B2B SaaS, tech-first SMBs, and mid-market enterprises in the US, Middle East, and India.",
+    "email": "chirag@buildverse.studio",
+    "telephone": "+91-9322529729",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mumbai",
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/buildverse-studio/?viewAsMember=true",
+      "https://x.com/_BuildVerse_"
+    ],
     "foundingDate": "2019",
-    "slogan": "Turning Ideas Into Intelligent Realities",
+    "slogan": "Production-Ready AI in 4–8 Weeks",
     "knowsAbout": [
-      "Artificial Intelligence",
-      "Machine Learning",
       "MVP Development",
       "AI Voice Agents",
-      "Business Automation",
-      "Natural Language Processing",
-      "Computer Vision",
-      "Deep Learning",
-      "AI Consulting"
+      "Workflow Automation",
+      "Business Analytics",
+      "CRM Development",
+      "Conversational AI",
+      "Natural Language Processing"
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "AI Services",
+      "name": "AI Development Services",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "MVP Development & Rapid Prototyping",
-            "description": "Transform your vision into market-ready products with AI-driven architecture and rapid prototyping",
-            "serviceType": "AI Product Development"
+            "name": "MVP Development",
+            "description": "Go from idea to working product in 4–8 weeks with AI-first architecture and rapid iteration cycles",
+            "serviceType": "Product Development"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "AI Voice & Conversational Agents",
-            "description": "Deploy intelligent conversational AI that automates customer interactions with natural language",
-            "serviceType": "AI Voice Technology"
+            "name": "AI Voice Agents",
+            "description": "Deploy intelligent voice assistants that handle calls, qualify leads, and book appointments 24/7",
+            "serviceType": "Voice AI"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Intelligent Automation & Workflows",
-            "description": "Streamline operations with AI-powered automation that learns and adapts to your business processes",
+            "name": "Workflow Automation",
+            "description": "Replace manual tasks with automated workflows that save 200+ hours monthly",
             "serviceType": "Business Automation"
           }
         },
@@ -77,17 +78,31 @@ export default function Home() {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Custom AI Solutions & Consulting",
-            "description": "Tailored AI implementations designed to solve your unique business challenges",
-            "serviceType": "AI Consulting"
+            "name": "Analytics & Dashboards",
+            "description": "Custom dashboards and predictive models that turn scattered data into clear insights",
+            "serviceType": "Business Intelligence"
           }
         }
       ]
     },
-    "areaServed": {
-      "@type": "Place",
-      "name": "Worldwide"
-    },
+    "areaServed": [
+      {
+        "@type": "Country",
+        "name": "United States"
+      },
+      {
+        "@type": "Country",
+        "name": "India"
+      },
+      {
+        "@type": "Country",
+        "name": "United Arab Emirates"
+      },
+      {
+        "@type": "Country",
+        "name": "United Kingdom"
+      }
+    ],
     "brand": {
       "@type": "Brand",
       "name": "BuildVerse"
@@ -96,47 +111,51 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        {/* Primary Meta Tags */}
-        <title>BuildVerse - Enterprise AI Solutions | MVP Development, AI Voice Agents & Automation</title>
+          <Head>
+            {/* Resource Hints for Performance */}
+            <link rel="preconnect" href="https://assets.apollo.io" />
+            <link rel="dns-prefetch" href="https://assets.apollo.io" />
+            
+            {/* Primary Meta Tags */}
+            <title>AI Studio | Voice Agents & MVP Development | BuildVerse</title>
         <meta 
           name="title" 
-          content="BuildVerse - Enterprise AI Solutions | MVP Development, AI Voice Agents & Automation" 
+          content="AI Studio | Voice Agents & MVP Development | BuildVerse" 
         />
         <meta 
           name="description" 
-          content="Save time and grow your business with BuildVerse's enterprise AI solutions. Get instant customer support with AI voice agents, automate repetitive tasks with business process automation, and make smarter decisions with AI business intelligence. Expert MVP development for fast results. Trusted by 50+ businesses worldwide." 
+          content="AI studio building voice agents, workflow automation & MVPs for B2B SaaS. Ship in 4-8 weeks. Book free strategy call." 
         />
         <meta 
           name="keywords" 
-          content="AI solutions, MVP development, AI voice agents, business automation, artificial intelligence consulting, machine learning, NLP, computer vision, enterprise AI, AI chatbots, conversational AI, intelligent automation, AI implementation, custom AI development, AI strategy, digital transformation" 
+          content="AI studio, voice agents, B2B SaaS, workflow automation, MVP development, AI voice assistants, conversational AI, business automation, rapid prototyping, lead qualification" 
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
-          {/* Canonical URL */}
-          <link rel="canonical" href="https://buildverse.studio/" />
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://buildverse.studio/" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://buildverse.studio/" />
-          <meta property="og:site_name" content="BuildVerse" />
-          <meta property="og:title" content="BuildVerse - Enterprise AI Solutions | MVP Development & AI Voice Agents" />
-          <meta property="og:description" content="Save time and grow your business with enterprise AI solutions. Get instant support with AI voice agents, automate workflows with business process automation, and make smarter decisions with AI business intelligence. Expert MVP development. Trusted by 50+ businesses." />
-          <meta property="og:image" content="https://buildverse.studio/logo.png" />
+        <meta property="og:url" content="https://buildverse.studio/" />
+        <meta property="og:site_name" content="BuildVerse" />
+        <meta property="og:title" content="AI Studio | Voice Agents & MVP Development | BuildVerse" />
+        <meta property="og:description" content="AI studio building voice agents, workflow automation & MVPs for B2B SaaS. Ship in 4-8 weeks. Book free strategy call." />
+        <meta property="og:image" content="https://buildverse.studio/logo.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="BuildVerse AI Innovation Studio Logo" />
+        <meta property="og:image:alt" content="BuildVerse AI Studio" />
         <meta property="og:locale" content="en_US" />
 
-          {/* Twitter */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:url" content="https://buildverse.studio/" />
-          <meta name="twitter:title" content="BuildVerse - Enterprise AI Solutions | MVP Development & AI Voice Agents" />
-          <meta name="twitter:description" content="Save time and grow your business with enterprise AI solutions. AI voice agents for instant support, business process automation to eliminate busywork, and AI business intelligence for smarter decisions. Expert MVP development." />
-          <meta name="twitter:image" content="https://buildverse.studio/logo.png" />
-          <meta name="twitter:image:alt" content="BuildVerse AI Innovation Studio Logo" />
-          <meta name="twitter:creator" content="@_BuildVerse_" />
-          <meta name="twitter:site" content="@_BuildVerse_" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://buildverse.studio/" />
+        <meta name="twitter:title" content="AI Studio | Voice Agents & MVP Development | BuildVerse" />
+        <meta name="twitter:description" content="AI studio building voice agents, workflow automation & MVPs for B2B SaaS. Ship in 4-8 weeks. Book free strategy call." />
+        <meta name="twitter:image" content="https://buildverse.studio/logo.png" />
+        <meta name="twitter:image:alt" content="BuildVerse AI Studio" />
+        <meta name="twitter:creator" content="@_BuildVerse_" />
+        <meta name="twitter:site" content="@_BuildVerse_" />
 
         {/* Additional SEO Tags */}
         <meta name="rating" content="general" />
@@ -153,9 +172,12 @@ export default function Home() {
       <main className="min-h-screen bg-primary-dark">
         <Navbar />
         <Hero />
-        <About />
+        <DeliveredResults />
+        <WhyBuildVerse />
+        <HowWeWork />
         <Services />
         <Portfolio />
+        <FoundersNote />
         <Testimonials />
         <Contact />
         <Footer />
@@ -163,5 +185,3 @@ export default function Home() {
     </>
   )
 }
-
-

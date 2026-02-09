@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+/* Font loading optimized - removed duplicate import, handled in _document.js */
 
 @tailwind base;
 @tailwind components;
@@ -127,3 +127,105 @@ h1, h2, h3, h4, h5, h6, p {
   background-size: 1000px 100%;
 }
 
+/* Performance-optimized utility classes (replaces inline styles) */
+@layer utilities {
+  /* Floating dots positioning - use CSS variables for dynamic positioning */
+  .floating-dot {
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: rgba(59, 130, 246, 0.2);
+    border-radius: 50%;
+  }
+  
+  /* Transform origin utilities */
+  .origin-left {
+    transform-origin: left;
+  }
+  
+  .origin-center {
+    transform-origin: center;
+  }
+  
+  .origin-right {
+    transform-origin: right;
+  }
+  
+  /* Video filter utilities */
+  .video-brightness-80 {
+    filter: brightness(0.8);
+  }
+  
+  .video-brightness-90 {
+    filter: brightness(0.9);
+  }
+  
+  /* Product Hunt badge dimensions */
+  .ph-badge {
+    width: 250px;
+    height: 54px;
+  }
+  
+  /* Animated gradient background */
+  .bg-gradient-animated {
+    background-size: 200% auto;
+    background-position: 0% center;
+    animation: gradient-shift 5s linear infinite;
+  }
+  
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% center;
+    }
+    50% {
+      background-position: 200% center;
+    }
+  }
+  
+  /* Will-change optimizations (use sparingly) */
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .will-change-opacity {
+    will-change: opacity;
+  }
+  
+  /* Content visibility for off-screen animations */
+  .content-visibility-auto {
+    content-visibility: auto;
+  }
+  
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Critical above-the-fold styles */
+@layer base {
+  /* Optimize font rendering */
+  body {
+    font-display: swap;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Optimize image loading */
+  img {
+    loading: lazy;
+    decoding: async;
+  }
+  
+  img[priority] {
+    loading: eager;
+    decoding: sync;
+  }
+}

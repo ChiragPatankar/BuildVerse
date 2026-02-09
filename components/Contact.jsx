@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { FiMail, FiLinkedin, FiSend, FiCheck, FiPhone, FiMapPin } from 'react-icons/fi'
+import { FiMail, FiLinkedin, FiSend, FiCheck, FiPhone, FiCalendar, FiClock, FiGlobe, FiMapPin, FiUsers } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
 
 const Contact = () => {
@@ -37,27 +37,6 @@ const Contact = () => {
       },
     },
   }
-
-  const contactInfo = [
-    {
-      icon: FiMail,
-      label: 'Email',
-      value: 'chirag@buildverse.studio',
-      link: 'mailto:chirag@buildverse.studio',
-    },
-    {
-      icon: FiPhone,
-      label: 'Phone',
-      value: '+91 93225 29729',
-      link: 'tel:+919322529729',
-    },
-    {
-      icon: FaWhatsapp,
-      label: 'WhatsApp',
-      value: 'Chat with us',
-      link: 'https://wa.me/919322529729',
-    },
-  ]
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -119,35 +98,80 @@ const Contact = () => {
           <div className="max-w-3xl mx-auto text-center">
             <motion.div variants={itemVariants} className="mb-4">
               <span className="text-xs sm:text-sm font-semibold text-primary-blue uppercase tracking-wider">
-                Get In Touch
+                Let&apos;s Talk
               </span>
             </motion.div>
             <motion.h2
               variants={itemVariants}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6 leading-tight"
             >
-              Let&apos;s Talk About Your Goals
+              Start With a Conversation
             </motion.h2>
             <motion.p
               variants={itemVariants}
               className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-gray-400 leading-relaxed"
             >
-              Whether you need MVP development, AI voice agents, business process automation, or AI business intelligence, 
-              we&apos;re here to help. Tell us what you&apos;re trying to achieve, and we&apos;ll show you how our enterprise AI solutions 
-              can make it happen.
+              Book a 20-minute strategy call. We&apos;ll discuss your challenges, show relevant demos, 
+              and give you 2–3 concrete ideas—whether we work together or not.
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+          {/* Primary CTA - Calendar Booking */}
+          <motion.div variants={itemVariants} className="max-w-2xl mx-auto">
+            <div className="bg-gradient-to-r from-primary-blue/10 to-primary-purple/10 border-2 border-primary-blue/30 rounded-2xl p-8 text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-primary-blue/20 border border-primary-blue/30 flex items-center justify-center">
+                <FiCalendar className="w-8 h-8 text-primary-blue" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                Book a Strategy Call
+              </h3>
+              <p className="text-slate-600 dark:text-gray-400 mb-6">
+                20 minutes with the founder. No sales pitch—just practical advice.
+              </p>
+              
+              <motion.a
+                href="https://cal.com/chirag-9yxbl2/20-min-strategy-call"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center space-x-2 px-8 py-4 bg-primary-blue hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-primary-blue/20"
+              >
+                <FiCalendar className="w-5 h-5" />
+                <span>Schedule Your Call</span>
+              </motion.a>
+
+              {/* Timezone Info */}
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-slate-600 dark:text-gray-400">
+                <div className="flex items-center space-x-2">
+                  <FiGlobe className="w-4 h-4" />
+                  <span>Slots for US, Middle East & India time zones</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <FiClock className="w-4 h-4" />
+                  <span>Response within 24 hours</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Divider */}
+          <motion.div variants={itemVariants} className="flex items-center gap-4 max-w-2xl mx-auto">
+            <div className="flex-1 h-px bg-slate-300 dark:bg-white/10" />
+            <span className="text-sm text-slate-500 dark:text-gray-500">or reach out directly</span>
+            <div className="flex-1 h-px bg-slate-300 dark:bg-white/10" />
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-8 max-w-6xl mx-auto">
             {/* Contact Form */}
-            <motion.div variants={itemVariants} className="lg:col-span-2">
-              <div className="bg-slate-50 dark:bg-white/5 border-2 border-slate-300 dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-sm">
+            <motion.div variants={itemVariants} className="lg:col-span-3">
+              <div className="bg-slate-50 dark:bg-white/5 border-2 border-slate-300 dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-sm h-full">
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">
-                  Send us a Message
+                  Send a Message
                 </h3>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     {/* Name */}
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-gray-400 mb-2">
@@ -202,7 +226,7 @@ const Contact = () => {
                   {/* Message */}
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-gray-400 mb-2">
-                      Message *
+                      What are you looking to build? *
                     </label>
                     <textarea
                       id="message"
@@ -210,9 +234,9 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      rows="6"
+                      rows="4"
                       className="w-full px-4 py-3 bg-white dark:bg-white/5 border-2 border-slate-300 dark:border-white/10 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-primary-blue transition-all resize-none"
-                      placeholder="Tell us about your project..."
+                      placeholder="Tell us about the problem you're trying to solve..."
                     />
                   </div>
 
@@ -225,7 +249,7 @@ const Contact = () => {
                     className={`w-full py-4 rounded-lg font-semibold text-white flex items-center justify-center space-x-2 transition-all duration-200 ${
                       isSubmitted
                         ? 'bg-green-600 cursor-default'
-                        : 'bg-primary-blue hover:bg-blue-600 shadow-lg shadow-primary-blue/20'
+                        : 'bg-slate-700 dark:bg-slate-600 hover:bg-slate-800 dark:hover:bg-slate-500 shadow-lg'
                     }`}
                   >
                     {isLoading ? (
@@ -240,7 +264,7 @@ const Contact = () => {
                     ) : isSubmitted ? (
                       <>
                         <FiCheck className="w-5 h-5" />
-                        <span>Message Sent Successfully!</span>
+                        <span>Message Sent!</span>
                       </>
                     ) : (
                       <>
@@ -253,76 +277,121 @@ const Contact = () => {
               </div>
             </motion.div>
 
-            {/* Contact Info Sidebar */}
-            <motion.div variants={itemVariants} className="space-y-4 sm:space-y-6">
-              {/* Contact Methods */}
-              <div className="bg-slate-50 dark:bg-white/5 border-2 border-slate-300 dark:border-white/10 rounded-2xl p-4 sm:p-6 space-y-4 sm:space-y-6 shadow-sm">
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-4">
-                  Contact Information
+            {/* Right Sidebar - Redesigned */}
+            <motion.div variants={itemVariants} className="lg:col-span-2 space-y-4">
+              {/* Quick Contact Card */}
+              <div className="bg-gradient-to-br from-primary-blue/20 to-primary-purple/20 border-2 border-primary-blue/30 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center space-x-2">
+                  <FiPhone className="w-5 h-5 text-primary-blue" />
+                  <span>Quick Contact</span>
                 </h3>
                 
-                {contactInfo.map((info, index) => (
+                <div className="space-y-3">
                   <a
-                    key={index}
-                    href={info.link}
-                    className="flex items-start space-x-4 p-4 bg-white/5 rounded-lg hover:bg-white/10 border border-white/10 hover:border-primary-blue/30 transition-all group"
+                    href="mailto:chirag@buildverse.studio"
+                    className="flex items-center space-x-3 text-sm text-slate-700 dark:text-gray-300 hover:text-primary-blue transition-colors group"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-primary-blue/10 border border-primary-blue/20 flex items-center justify-center flex-shrink-0 group-hover:bg-primary-blue/20 transition-all">
-                      <info.icon className="w-5 h-5 text-primary-blue" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-slate-500 dark:text-gray-500 mb-1">{info.label}</div>
-                      <div className="text-sm text-slate-900 dark:text-white font-medium">{info.value}</div>
-                    </div>
+                    <FiMail className="w-4 h-4 text-primary-blue" />
+                    <span className="group-hover:underline">chirag@buildverse.studio</span>
                   </a>
-                ))}
-              </div>
-
-              {/* Business Hours */}
-              <div className="bg-slate-50 dark:bg-white/5 border-2 border-slate-300 dark:border-white/10 rounded-2xl p-4 sm:p-6 shadow-sm">
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-4">
-                  Business Hours
-                </h3>
-                <div className="space-y-2 text-xs sm:text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-slate-600 dark:text-gray-400">Monday - Friday</span>
-                    <span className="text-slate-900 dark:text-white">9:00 - 18:00</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-600 dark:text-gray-400">Saturday</span>
-                    <span className="text-slate-900 dark:text-white">10:00 - 14:00</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-600 dark:text-gray-400">Sunday</span>
-                    <span className="text-slate-900 dark:text-white">Closed</span>
-                  </div>
+                  <a
+                    href="tel:+919322529729"
+                    className="flex items-center space-x-3 text-sm text-slate-700 dark:text-gray-300 hover:text-primary-blue transition-colors group"
+                  >
+                    <FiPhone className="w-4 h-4 text-primary-blue" />
+                    <span className="group-hover:underline">+91 93225 29729</span>
+                  </a>
+                  <a
+                    href="https://wa.me/919322529729"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-3 text-sm text-slate-700 dark:text-gray-300 hover:text-primary-blue transition-colors group"
+                  >
+                    <FaWhatsapp className="w-4 h-4 text-green-500" />
+                    <span className="group-hover:underline">WhatsApp</span>
+                  </a>
                 </div>
-              </div>
 
-              {/* Social Links */}
-              <div className="bg-gradient-to-r from-primary-blue/10 to-primary-purple/10 border-2 border-primary-blue/30 rounded-2xl p-4 sm:p-6 shadow-sm">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-4">
-                  Follow Us
-                </h3>
-                <div className="flex space-x-3">
+                {/* Social Links inline */}
+                <div className="mt-4 pt-4 border-t border-white/10 flex items-center space-x-2">
+                  <span className="text-xs text-slate-500 dark:text-gray-500">Follow:</span>
                   <a
                     href="https://www.linkedin.com/company/buildverse-studio/?viewAsMember=true"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center transition-all"
+                    className="w-8 h-8 rounded-lg bg-white/10 hover:bg-primary-blue/20 border border-white/20 flex items-center justify-center transition-all"
                   >
-                    <FiLinkedin className="w-5 h-5 text-slate-700 dark:text-white" />
+                    <FiLinkedin className="w-4 h-4 text-slate-700 dark:text-white" />
                   </a>
                   <a
                     href="https://x.com/_BuildVerse_"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center transition-all"
+                    className="w-8 h-8 rounded-lg bg-white/10 hover:bg-primary-blue/20 border border-white/20 flex items-center justify-center transition-all"
                   >
-                    <svg className="w-5 h-5 text-slate-700 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-slate-700 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                     </svg>
                   </a>
+                </div>
+              </div>
+
+              {/* Combined Info Card */}
+              <div className="bg-slate-50 dark:bg-white/5 border-2 border-slate-300 dark:border-white/10 rounded-2xl p-6 shadow-sm">
+                {/* Regions */}
+                <div className="mb-5">
+                  <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-3 flex items-center space-x-2">
+                    <FiMapPin className="w-4 h-4 text-primary-blue" />
+                    <span>We Serve</span>
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {['US', 'UAE', 'India', 'UK', 'EU'].map((region) => (
+                      <span
+                        key={region}
+                        className="px-3 py-1 text-xs font-medium bg-primary-blue/10 text-primary-blue border border-primary-blue/20 rounded-full"
+                      >
+                        {region}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Divider */}
+                <div className="h-px bg-slate-200 dark:bg-white/10 mb-5" />
+
+                {/* Ideal For */}
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-3 flex items-center space-x-2">
+                    <FiUsers className="w-4 h-4 text-primary-blue" />
+                    <span>Ideal For</span>
+                  </h4>
+                  <div className="grid grid-cols-2 gap-2 text-xs text-slate-600 dark:text-gray-400">
+                    <div className="flex items-center space-x-1">
+                      <div className="w-1 h-1 rounded-full bg-primary-blue" />
+                      <span>B2B SaaS</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <div className="w-1 h-1 rounded-full bg-primary-blue" />
+                      <span>Tech SMBs</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <div className="w-1 h-1 rounded-full bg-primary-blue" />
+                      <span>Enterprises</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <div className="w-1 h-1 rounded-full bg-primary-blue" />
+                      <span>Healthcare</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Response Time Badge */}
+              <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-4 flex items-center space-x-3">
+                <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
+                <div>
+                  <div className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">Usually responds in 24h</div>
+                  <div className="text-xs text-slate-500 dark:text-gray-500">Mon–Sat, 9am–6pm IST</div>
                 </div>
               </div>
             </motion.div>

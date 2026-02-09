@@ -54,3 +54,9 @@ logs
 .tmp
 temp
 *.tmp
+
+# Large video files
+*.mp4
+reel/
+demo/
+.wrangler/

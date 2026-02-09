@@ -96,9 +96,10 @@ const Footer = () => {
                 <img 
                   src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1031909&theme=neutral&t=1762063929034" 
                   alt="BuildVerse - AI Studio for Businesses — Automate. Optimize. Build. | Product Hunt" 
-                  style={{ width: '250px', height: '54px' }} 
+                  className="ph-badge"
                   width="250" 
                   height="54" 
+                  loading="lazy"
                 />
               </a>
             </div>
