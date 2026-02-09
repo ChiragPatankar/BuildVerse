@@ -25,12 +25,39 @@ const nextConfig = {
   
   // Exclude buildverse-flowforge from Next.js compilation (it's a separate project)
   webpack: (config, { isServer }) => {
+    // Exclude buildverse-flowforge from compilation
     config.watchOptions = {
       ...config.watchOptions,
       ignored: ['**/node_modules/**', '**/buildverse-flowforge/**'],
     }
+    
+    // Exclude from module resolution
+    config.resolve = {
+      ...config.resolve,
+      alias: {
+        ...config.resolve.alias,
+      },
+    }
+    
+    // Exclude from compilation
+    config.module = {
+      ...config.module,
+      rules: [
+        ...config.module.rules,
+        {
+          test: /\.(ts|tsx|js|jsx)$/,
+          include: (filePath) => {
+            return !filePath.includes('buildverse-flowforge')
+          },
+        },
+      ],
+    }
+    
     return config
   },
+  
+  // Exclude from page detection
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   
   // Exclude from TypeScript compilation
   typescript: {

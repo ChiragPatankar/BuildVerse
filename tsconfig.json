@@ -19,7 +19,12 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "functions", "buildverse-flowforge"]
+  "exclude": [
+    "node_modules",
+    "functions",
+    "buildverse-flowforge",
+    "buildverse-flowforge/**/*"
+  ]
 }
 
 
