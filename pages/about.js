@@ -311,7 +311,7 @@ export default function AboutPage() {
                   </div>
                   <h3 className="font-bold text-xl dark:text-white mb-1">{member.name}</h3>
                   <p className="text-primary-blue text-xs font-bold uppercase mb-2 tracking-wider">{member.role}</p>
-                  <p className="text-slate-500 dark:text-gray-400 text-sm italic mb-4">"{member.tagline}"</p>
+                  <p className="text-slate-500 dark:text-gray-400 text-sm italic mb-4">&quot;{member.tagline}&quot;</p>
                   <div className="flex gap-3 pt-4 border-t border-slate-200 dark:border-white/10">
                     {member.linkedin && (
                       <a 
