@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion'
-import { FiArrowRight, FiCalendar, FiPlay } from 'react-icons/fi'
+import { FiArrowRight, FiCalendar } from 'react-icons/fi'
 import Link from 'next/link'
 import { useEffect, useState, useRef } from 'react'
 
@@ -212,32 +212,16 @@ const Hero = () => {
             {/* Main Heading - Optimized for LCP */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight">
               <span className="block text-slate-900 dark:text-white leading-tight sm:leading-[1.1]">
-                MVP Development & AI Voice Agents
-              </span>
-              <span className="block mt-2 bg-gradient-to-r from-primary-blue via-blue-400 to-primary-purple bg-clip-text text-transparent leading-tight sm:leading-[1.1] bg-gradient-animated">
-                for B2B SaaS
-              </span>
-              <span className="block mt-2 text-slate-900 dark:text-white leading-tight sm:leading-[1.1]">
-                in 4–8 Weeks
+                AI + Software Solutions Built in Weeks, Not Months.
               </span>
             </h1>
-
-            {/* ICP Descriptor */}
-            <motion.p
-              variants={itemVariants}
-              className="text-sm sm:text-base md:text-lg text-primary-blue font-semibold"
-            >
-              AI Studio for B2B SaaS, tech-first SMBs, and mid-market enterprises
-            </motion.p>
 
             {/* Subheading */}
             <motion.p
               variants={itemVariants}
               className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed font-light"
             >
-              We&apos;re a founder-led AI studio that ships real products. From intelligent voice agents 
-              that handle 10,000+ calls daily to workflow automations saving 200+ hours monthly—we 
-              build what your team needs and get out of your way.
+              Production-ready AI agents (voice, chat, calling) • Custom MVPs • Industry-specific CRMs • Analytics dashboards • Web development — delivered in 2–8 weeks for US, UK &amp; EU companies.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -245,38 +229,43 @@ const Hero = () => {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center pt-2 sm:pt-4 w-full max-w-md mx-auto sm:max-w-none"
             >
+              <Link href="#services" legacyBehavior>
+                <motion.a
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group px-6 py-3 sm:px-8 sm:py-4 bg-primary-blue hover:bg-blue-600 text-white font-semibold rounded-lg transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg shadow-primary-blue/20 text-sm sm:text-base"
+                >
+                  <span>Explore Solutions</span>
+                  <FiArrowRight className="group-hover:translate-x-1 transition-transform w-4 h-4" />
+                </motion.a>
+              </Link>
+
               <motion.a
                 href="https://cal.com/chirag-9yxbl2/20-min-strategy-call"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="group px-6 py-3 sm:px-8 sm:py-4 bg-primary-blue hover:bg-blue-600 text-white font-semibold rounded-lg transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg shadow-primary-blue/20 text-sm sm:text-base"
+                className="cursor-pointer px-6 py-3 sm:px-8 sm:py-4 bg-slate-200 dark:bg-white/5 hover:bg-slate-300 dark:hover:bg-white/10 text-slate-900 dark:text-white font-semibold rounded-lg border border-slate-300 dark:border-white/10 hover:border-slate-400 dark:hover:border-white/20 transition-all duration-200 backdrop-blur-sm text-sm sm:text-base text-center flex items-center justify-center space-x-2"
               >
                 <FiCalendar className="w-4 h-4" />
-                <span>Book a 20-min Strategy Call</span>
-                <FiArrowRight className="group-hover:translate-x-1 transition-transform w-4 h-4" />
+                <span>Book Strategy Call</span>
               </motion.a>
-
-              <Link href="/demos" legacyBehavior>
-                <motion.a
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="cursor-pointer px-6 py-3 sm:px-8 sm:py-4 bg-slate-200 dark:bg-white/5 hover:bg-slate-300 dark:hover:bg-white/10 text-slate-900 dark:text-white font-semibold rounded-lg border border-slate-300 dark:border-white/10 hover:border-slate-400 dark:hover:border-white/20 transition-all duration-200 backdrop-blur-sm text-sm sm:text-base text-center flex items-center justify-center space-x-2"
-                >
-                  <FiPlay className="w-4 h-4" />
-                  <span>Watch Demos</span>
-                </motion.a>
-              </Link>
             </motion.div>
 
-            {/* CTA Subline */}
-            <motion.p
+            {/* Credibility Line */}
+            <motion.div
               variants={itemVariants}
-              className="text-xs sm:text-sm text-slate-500 dark:text-gray-500"
+              className="text-xs sm:text-sm text-slate-600 dark:text-gray-400 max-w-2xl mx-auto space-y-1"
             >
-              Get 2–3 concrete AI ideas tailored to your business within 48 hours
-            </motion.p>
+              <p className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+                <span>✓ SOC2-aligned security</span>
+                <span>✓ GDPR &amp; CCPA ready</span>
+                <span>✓ 99.9% uptime SLA</span>
+                <span>✓ AWS &amp; GCP infrastructure</span>
+                <span>✓ 24-hour response SLA (US/EU overlap)</span>
+              </p>
+            </motion.div>
 
             {/* Trusted By Section */}
             <motion.div
@@ -319,7 +308,7 @@ const Hero = () => {
                   suffix="+" 
                   label="Clients" 
                   fullLabel="Happy Clients" 
-                  sublabel="US, Middle East, India"
+                  sublabel="US, UK & EU"
                   startCounting={isStatsInView}
                   delay={200}
                 />

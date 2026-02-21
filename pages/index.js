@@ -9,6 +9,7 @@ import Portfolio from '@/components/Portfolio'
 import FoundersNote from '@/components/FoundersNote'
 import Testimonials from '@/components/Testimonials'
 import Contact from '@/components/Contact'
+import GlobalCredibility from '@/components/GlobalCredibility'
 import Footer from '@/components/Footer'
 
 export default function Home() {
@@ -20,7 +21,7 @@ export default function Home() {
     "alternateName": "BuildVerse AI Studio",
     "url": "https://buildverse.studio",
     "logo": "https://buildverse.studio/logo.png",
-    "description": "Founder-led AI studio shipping production-ready MVPs, voice agents, and workflow automations in 4–8 weeks. Serving B2B SaaS, tech-first SMBs, and mid-market enterprises in the US, Middle East, and India.",
+    "description": "Global delivery team shipping production-ready AI agents, MVPs, CRMs, and dashboards in 2–8 weeks. Enterprise standards for US, UK & EU companies.",
     "email": "chirag@buildverse.studio",
     "telephone": "+91-9322529729",
     "address": {
@@ -33,7 +34,7 @@ export default function Home() {
       "https://x.com/_BuildVerse_"
     ],
     "foundingDate": "2019",
-    "slogan": "Production-Ready AI in 4–8 Weeks",
+    "slogan": "AI + Software Solutions Built in Weeks, Not Months",
     "knowsAbout": [
       "MVP Development",
       "AI Voice Agents",
@@ -117,14 +118,14 @@ export default function Home() {
             <link rel="dns-prefetch" href="https://assets.apollo.io" />
             
             {/* Primary Meta Tags */}
-            <title>AI Studio | Voice Agents & MVP Development | BuildVerse</title>
+            <title>AI + Software Solutions | Build in Weeks | BuildVerse</title>
         <meta 
           name="title" 
-          content="AI Studio | Voice Agents & MVP Development | BuildVerse" 
+          content="AI + Software Solutions | Build in Weeks | BuildVerse" 
         />
         <meta 
           name="description" 
-          content="AI studio building voice agents, workflow automation & MVPs for B2B SaaS. Ship in 4-8 weeks. Book free strategy call." 
+          content="Production-ready AI agents, custom MVPs, CRMs & dashboards for US, UK & EU. Delivered in 2–8 weeks. Enterprise standards. Book strategy call." 
         />
         <meta 
           name="keywords" 
@@ -139,8 +140,8 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://buildverse.studio/" />
         <meta property="og:site_name" content="BuildVerse" />
-        <meta property="og:title" content="AI Studio | Voice Agents & MVP Development | BuildVerse" />
-        <meta property="og:description" content="AI studio building voice agents, workflow automation & MVPs for B2B SaaS. Ship in 4-8 weeks. Book free strategy call." />
+        <meta property="og:title" content="AI + Software Solutions | Build in Weeks | BuildVerse" />
+        <meta property="og:description" content="Production-ready AI agents, custom MVPs, CRMs & dashboards for US, UK & EU. Delivered in 2–8 weeks. Enterprise standards." />
         <meta property="og:image" content="https://buildverse.studio/logo.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -150,8 +151,8 @@ export default function Home() {
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://buildverse.studio/" />
-        <meta name="twitter:title" content="AI Studio | Voice Agents & MVP Development | BuildVerse" />
-        <meta name="twitter:description" content="AI studio building voice agents, workflow automation & MVPs for B2B SaaS. Ship in 4-8 weeks. Book free strategy call." />
+        <meta name="twitter:title" content="AI + Software Solutions | Build in Weeks | BuildVerse" />
+        <meta name="twitter:description" content="Production-ready AI agents, custom MVPs, CRMs & dashboards for US, UK & EU. Delivered in 2–8 weeks. Enterprise standards." />
         <meta name="twitter:image" content="https://buildverse.studio/logo.png" />
         <meta name="twitter:image:alt" content="BuildVerse AI Studio" />
         <meta name="twitter:creator" content="@_BuildVerse_" />
@@ -180,6 +181,7 @@ export default function Home() {
         <FoundersNote />
         <Testimonials />
         <Contact />
+        <GlobalCredibility />
         <Footer />
       </main>
     </>

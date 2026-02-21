@@ -105,16 +105,23 @@ const Contact = () => {
               variants={itemVariants}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6 leading-tight"
             >
-              Start With a Conversation
+              Ready to Ship in Weeks Instead of Months?
             </motion.h2>
             <motion.p
               variants={itemVariants}
               className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-gray-400 leading-relaxed"
             >
-              Book a 20-minute strategy call. We&apos;ll discuss your challenges, show relevant demos, 
-              and give you 2–3 concrete ideas—whether we work together or not.
+              Tell us what you&apos;re building. We&apos;ll show you how to launch faster.
             </motion.p>
           </div>
+
+          {/* Cross-sell positioning */}
+          <motion.p
+            variants={itemVariants}
+            className="max-w-2xl mx-auto text-center text-sm sm:text-base text-slate-600 dark:text-gray-400 leading-relaxed"
+          >
+            Most clients start with one solution — AI agent, MVP, or CRM — and expand into dashboards, automation, and analytics. BuildVerse is built as a long-term technical partner, not a one-off vendor.
+          </motion.p>
 
           {/* Primary CTA - Calendar Booking */}
           <motion.div variants={itemVariants} className="max-w-2xl mx-auto">
@@ -123,10 +130,10 @@ const Contact = () => {
                 <FiCalendar className="w-8 h-8 text-primary-blue" />
               </div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
-                Book a Strategy Call
+                Schedule Strategy Call
               </h3>
               <p className="text-slate-600 dark:text-gray-400 mb-6">
-                20 minutes with the founder. No sales pitch—just practical advice.
+                Tell us what you&apos;re building. We&apos;ll show you how to launch faster.
               </p>
               
               <motion.a
@@ -138,14 +145,14 @@ const Contact = () => {
                 className="inline-flex items-center space-x-2 px-8 py-4 bg-primary-blue hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-primary-blue/20"
               >
                 <FiCalendar className="w-5 h-5" />
-                <span>Schedule Your Call</span>
+                <span>Schedule Strategy Call</span>
               </motion.a>
 
               {/* Timezone Info */}
               <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-slate-600 dark:text-gray-400">
                 <div className="flex items-center space-x-2">
                   <FiGlobe className="w-4 h-4" />
-                  <span>Slots for US, Middle East & India time zones</span>
+                  <span>Slots for US, UK &amp; EU time zones</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <FiClock className="w-4 h-4" />

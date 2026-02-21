@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FiCpu, FiMic, FiZap, FiBarChart2, FiArrowRight, FiCheck } from 'react-icons/fi'
+import { FiCpu, FiMic, FiZap, FiBarChart2, FiArrowRight } from 'react-icons/fi'
 
 const Services = () => {
   const ref = useRef(null)
@@ -31,52 +31,56 @@ const Services = () => {
 
   const services = [
     {
+      icon: FiMic,
+      title: 'AI Agents (Voice / Chat / Calling)',
+      timeline: '2–4 weeks',
+      description: 'Automate customer support, qualify leads, and answer every call — without hiring more staff. Launch production-ready AI agents in 2–4 weeks.',
+      idealFor: 'Sales teams & support-heavy businesses',
+      pricing: [
+        { tier: 'Starter', items: ['$8,000 setup', '$2,000/month (up to 1,000 interactions)'] },
+        { tier: 'Growth', items: ['$15,000 setup', '$5,000/month (up to 5,000 interactions)'] },
+        { tier: 'Enterprise', items: ['Custom pricing', 'Dedicated infrastructure + SLA'] },
+      ],
+      line: 'Fixed scope. No hidden overages.',
+    },
+    {
       icon: FiCpu,
       title: 'MVP Development',
       timeline: '4–8 weeks',
-      description: 'Go from idea to working product your customers can use. We build, test, and iterate fast—so you start learning what works before spending months in development.',
-      outcomes: [
-        'First paying customers in weeks',
-        'Clean, scalable codebase',
-        'Weekly progress demos',
-      ],
+      description: 'Launch scalable SaaS products in 4–8 weeks. Full-stack architecture, secure infrastructure, production-ready from day one.',
       idealFor: 'Startups validating new ideas',
-    },
-    {
-      icon: FiMic,
-      title: 'AI Voice Agents',
-      timeline: '2–4 weeks',
-      description: 'Handle inbound calls, qualify leads, book appointments, and answer FAQs—24/7. Sounds natural, integrates with your CRM, and never takes a day off.',
-      outcomes: [
-        'Reduce support load by 40-60%',
-        '+45% lead-to-meeting conversion',
-        'Handle thousands of daily calls',
+      pricing: [
+        { tier: 'Startup MVP', items: ['$45,000 fixed', '4 weeks', '2–3 core features'] },
+        { tier: 'Growth MVP', items: ['$95,000 fixed', '6 weeks', '5–8 features + integrations'] },
+        { tier: 'Enterprise Build', items: ['$180,000+', '8 weeks', 'Complex architecture + scaling'] },
       ],
-      idealFor: 'Sales teams & support-heavy businesses',
+      line: 'Includes post-launch support.',
     },
     {
       icon: FiZap,
-      title: 'Workflow Automation',
+      title: 'CRM Solutions',
       timeline: '2–3 weeks',
-      description: 'Replace manual, repetitive tasks with automated workflows. Data entry, follow-ups, order processing—we connect your tools and make them work together.',
-      outcomes: [
-        'Save 200+ hours monthly',
-        'Reduce human error by 90%',
-        'Connect 50+ apps and systems',
+      description: 'Industry-specific CRMs built around your workflows — healthcare, real estate, agencies, legal, and more.',
+      idealFor: 'Teams needing tailored CRM',
+      pricing: [
+        { tier: 'Standard CRM', items: ['$18,000 setup', '$1,200/month (up to 20 users)', '2–3 week delivery'] },
+        { tier: 'Growth CRM', items: ['$30,000 setup', '$2,500/month'] },
+        { tier: 'Custom Industry CRM', items: ['$50,000+', 'Custom subscription model'] },
       ],
-      idealFor: 'Operations teams',
+      line: 'HIPAA-ready options available.',
     },
     {
       icon: FiBarChart2,
-      title: 'Analytics & Dashboards',
+      title: 'Dashboard & BI',
       timeline: '3–5 weeks',
-      description: 'Turn scattered data into clear insights. Custom dashboards that show what matters, predictive models that forecast trends, and alerts that catch issues early.',
-      outcomes: [
-        'Real-time visibility',
-        'Predictive insights',
-        'Data-driven decisions',
-      ],
+      description: 'Executive dashboards, predictive analytics, and real-time reporting built in 3–5 weeks.',
       idealFor: 'Teams needing better data',
+      pricing: [
+        { tier: 'Basic BI', items: ['$15,000 setup', '$500/month'] },
+        { tier: 'Growth BI', items: ['$40,000 setup', '$1,500/month'] },
+        { tier: 'Enterprise BI', items: ['$100,000+', 'Custom SLA'] },
+      ],
+      line: 'Built on AWS/GCP with secure data pipelines.',
     },
   ]
 
@@ -152,15 +156,21 @@ const Services = () => {
                     {service.description}
                   </p>
 
-                  {/* Outcomes */}
-                  <ul className="space-y-2">
-                    {service.outcomes.map((outcome, oIndex) => (
-                      <li key={oIndex} className="flex items-center space-x-2 text-sm">
-                        <FiCheck className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                        <span className="text-slate-700 dark:text-gray-300">{outcome}</span>
-                      </li>
+                  {/* Pricing */}
+                  <div className="mb-3">
+                    <p className="text-xs font-semibold text-slate-500 dark:text-gray-500 uppercase tracking-wider mb-2">Pricing</p>
+                    {service.pricing.map((tier, tIndex) => (
+                      <div key={tIndex} className="mb-2">
+                        <p className="text-xs font-medium text-primary-blue">{tier.tier}:</p>
+                        <ul className="text-xs text-slate-600 dark:text-gray-400 space-y-0.5 ml-2">
+                          {tier.items.map((item, i) => (
+                            <li key={i}>• {item}</li>
+                          ))}
+                        </ul>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
+                  <p className="text-xs text-slate-500 dark:text-gray-500 italic">{service.line}</p>
                 </div>
               </motion.div>
             ))}
