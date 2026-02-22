@@ -4,15 +4,15 @@ import Footer from '@/components/Footer'
 
 export default function TermsOfService() {
   const email = 'chirag@buildverse.studio'
-  const title = 'Terms of Service | BuildVerse Studio'
-  const description = 'Read the Terms of Service for BuildVerse Studio. Conditions, acceptable use, IP, disclaimers, and contact information.'
+  const title = 'Terms of Service | BuildVerse'
+  const description = 'Terms of Service for BuildVerse. Acceptance, services, IP, disclaimers, governing law, and contact.'
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: title,
     url: 'https://buildverse.studio/terms',
-    publisher: { '@type': 'Organization', name: 'BuildVerse Studio', email },
+    publisher: { '@type': 'Organization', name: 'BuildVerse', email, url: 'https://buildverse.studio' },
     inLanguage: 'en',
     isAccessibleForFree: true,
   }
@@ -37,51 +37,52 @@ export default function TermsOfService() {
         <section className="pt-28 md:pt-32 lg:pt-36 pb-14">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
             <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">Terms of Service</h1>
-            <p className="mt-3 text-slate-600 dark:text-gray-300">Last updated: {new Date().toLocaleDateString('en-US')}</p>
+            <p className="mt-3 text-slate-600 dark:text-gray-300">Last updated: February 2025</p>
 
-            <div className="mt-8 space-y-8 text-slate-700 dark:text-gray-300">
+            <div className="mt-8 space-y-8 text-slate-700 dark:text-gray-300 leading-relaxed">
               <section>
-                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">Acceptance of Terms</h2>
-                <p className="mt-2">By accessing or using our services, you agree to these Terms. If you do not agree, do not use the services.</p>
+                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">1. Acceptance of Terms</h2>
+                <p className="mt-2">By accessing or using the BuildVerse website or our services, you agree to these Terms of Service. If you do not agree, do not use our site or services.</p>
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">Services</h2>
-                <p className="mt-2">We provide AI consulting, development, and integration services as scoped per proposal/SOW. Timelines and deliverables are defined project-by-project.</p>
+                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">2. Services</h2>
+                <p className="mt-2">BuildVerse provides AI and software development services (e.g. AI agents, MVPs, CRMs, dashboards) as described on our website and in individual proposals or statements of work. Scope, timelines, and deliverables are agreed per engagement.</p>
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">Client Obligations</h2>
-                <ul className="list-disc ml-5 mt-2 space-y-1">
-                  <li>Provide timely access to information, systems, and stakeholders</li>
-                  <li>Ensure lawful use of provided data and systems</li>
-                  <li>Review and approve deliverables within reasonable timeframes</li>
-                </ul>
+                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">3. Client Obligations</h2>
+                <p className="mt-2">You agree to provide timely access to information, systems, and stakeholders needed for delivery; to use our work and any data lawfully; and to review and approve deliverables within reasonable timeframes. You are responsible for the accuracy of information you provide.</p>
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">Intellectual Property</h2>
-                <p className="mt-2">Unless agreed otherwise in writing, client owns deliverables upon full payment. We retain rights to pre-existing IP, frameworks, and tooling.</p>
+                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">4. Intellectual Property</h2>
+                <p className="mt-2">Unless otherwise agreed in writing, upon full payment you receive the agreed rights to deliverables created for you. BuildVerse retains rights to its pre-existing IP, tools, frameworks, and methods. Pre-existing materials we use remain ours.</p>
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">Confidentiality</h2>
-                <p className="mt-2">Both parties agree to keep confidential information secure and use it only for the purpose of service delivery.</p>
+                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">5. Confidentiality</h2>
+                <p className="mt-2">Each party will keep the other&apos;s confidential information secure and use it only for performing or receiving the services. This obligation survives after the engagement ends, except where disclosure is required by law.</p>
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">Warranties & Disclaimers</h2>
-                <p className="mt-2">Services are provided “as is”. We disclaim all implied warranties to the fullest extent permitted by law.</p>
+                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">6. Warranties and Disclaimers</h2>
+                <p className="mt-2">We will perform the services with reasonable skill and care. Except as expressly stated in a written agreement, our services are provided &quot;as is&quot;. We disclaim all implied warranties (including merchantability and fitness for a particular purpose) to the fullest extent permitted by law.</p>
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">Limitation of Liability</h2>
-                <p className="mt-2">Our total liability is limited to the amount paid by client for the specific service giving rise to the claim.</p>
+                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">7. Limitation of Liability</h2>
+                <p className="mt-2">Our total liability for any claim arising from or related to these terms or the services is limited to the amount you paid us for the specific service giving rise to the claim. We are not liable for indirect, incidental, special, or consequential damages.</p>
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">Contact</h2>
-                <p className="mt-2">For questions regarding these Terms, email <a className="text-primary-blue hover:underline" href={`mailto:${email}`}>{email}</a>.</p>
+                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">8. Governing Law</h2>
+                <p className="mt-2">These Terms are governed by the laws of India. Any dispute arising from or relating to these Terms or our services shall be subject to the exclusive jurisdiction of the courts of Mumbai, India. If you are a consumer in the EEA or UK, you may also have rights under the laws of your country of residence.</p>
+              </section>
+
+              <section>
+                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">9. Contact</h2>
+                <p className="mt-2">For questions about these Terms, or for data requests under our Privacy Policy, contact us at <a className="text-primary-blue hover:underline" href={`mailto:${email}`}>{email}</a>.</p>
               </section>
             </div>
           </div>
@@ -92,6 +93,3 @@ export default function TermsOfService() {
     </>
   )
 }
-
-
-

@@ -5,6 +5,7 @@ import DeliveredResults from '@/components/DeliveredResults'
 import WhyBuildVerse from '@/components/WhyBuildVerse'
 import HowWeWork from '@/components/HowWeWork'
 import Services from '@/components/Services'
+import WhyCompaniesChoose from '@/components/WhyCompaniesChoose'
 import Portfolio from '@/components/Portfolio'
 import FoundersNote from '@/components/FoundersNote'
 import Testimonials from '@/components/Testimonials'
@@ -177,6 +178,7 @@ export default function Home() {
         <WhyBuildVerse />
         <HowWeWork />
         <Services />
+        <WhyCompaniesChoose />
         <Portfolio />
         <FoundersNote />
         <Testimonials />
