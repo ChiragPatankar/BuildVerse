@@ -34,6 +34,7 @@ const Navbar = () => {
     { name: 'Home', href: '/', type: 'route' },
     { name: 'About', href: '/about', type: 'route' },
     { name: 'Services', href: '/#services', type: 'route' },
+    { name: 'AI in Action', href: '/demos', type: 'route' },
     { name: 'Portfolio', href: '/#portfolio', type: 'route' },
     { name: 'Contact', href: '/#contact', type: 'route' },
   ]

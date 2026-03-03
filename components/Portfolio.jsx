@@ -77,6 +77,7 @@ const Portfolio = () => {
         { label: 'Meetings Booked', value: '2K+' },
       ],
       timeline: '4 weeks',
+      caseStudyUrl: '/case-studies/voice-activated-sales-system',
     },
     {
       icon: FiTrendingUp,
@@ -92,6 +93,7 @@ const Portfolio = () => {
         { label: 'Error Rate', value: '-90%' },
       ],
       timeline: '5 weeks',
+      caseStudyUrl: '/case-studies/enterprise-workflow-automation',
     },
     {
       icon: FiLayers,
@@ -107,6 +109,7 @@ const Portfolio = () => {
         { label: 'Speed', value: '10x' },
       ],
       timeline: '4 weeks',
+      caseStudyUrl: '/case-studies/ai-content-generation-suite',
     },
     {
       icon: FiTarget,
@@ -122,6 +125,7 @@ const Portfolio = () => {
         { label: 'Active Users', value: '1M+' },
       ],
       timeline: '6 weeks',
+      caseStudyUrl: '/case-studies/personalization-recommendation-engine',
     },
   ]
 
@@ -172,12 +176,23 @@ const Portfolio = () => {
 
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
+            {projects.map((project, index) => {
+              const hasDemo = Boolean(project.liveDemo)
+              const hasCaseStudy = Boolean(project.caseStudyUrl)
+              return (
               <motion.div
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -4 }}
-                className="group relative"
+                className={`group relative ${(hasDemo || hasCaseStudy) ? 'cursor-pointer' : ''}`}
+                onClick={() => {
+                  if (typeof window === 'undefined') return
+                  if (hasDemo) {
+                    window.open(project.liveDemo, '_blank', 'noopener,noreferrer')
+                  } else if (hasCaseStudy) {
+                    window.location.href = project.caseStudyUrl
+                  }
+                }}
               >
                 <div className="h-full flex flex-col bg-slate-50 dark:bg-white/5 border-2 border-slate-300 dark:border-white/10 rounded-2xl overflow-hidden hover:border-primary-blue/50 dark:hover:border-primary-blue/30 transition-all duration-300 shadow-sm">
                   {/* Header */}
@@ -245,17 +260,29 @@ const Portfolio = () => {
 
                     {/* Action Links */}
                     <div className="flex flex-wrap gap-2 pt-2">
-                      {project.liveDemo ? (
+                      {project.liveDemo && (
                         <a
                           href={project.liveDemo}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center space-x-1 px-3 py-1.5 text-xs font-medium bg-primary-blue/10 hover:bg-primary-blue/20 text-primary-blue border border-primary-blue/20 rounded-lg transition-colors"
+                          onClick={(e) => e.stopPropagation()}
                         >
                           <FiExternalLink className="w-3 h-3" />
                           <span>Live Demo</span>
                         </a>
-                      ) : (
+                      )}
+                      {!project.liveDemo && project.caseStudyUrl && (
+                        <a
+                          href={project.caseStudyUrl}
+                          className="inline-flex items-center space-x-1 px-3 py-1.5 text-xs font-medium bg-slate-900/5 dark:bg-white/5 hover:bg-slate-900/10 dark:hover:bg-white/10 text-slate-900 dark:text-white border border-slate-300 dark:border-white/10 rounded-lg transition-colors"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <FiExternalLink className="w-3 h-3" />
+                          <span>View Case Study</span>
+                        </a>
+                      )}
+                      {!project.liveDemo && !project.caseStudyUrl && (
                         <span className="inline-flex items-center space-x-1 px-3 py-1.5 text-xs font-medium text-slate-400 dark:text-gray-500">
                           Demo coming soon
                         </span>
@@ -271,7 +298,7 @@ const Portfolio = () => {
                   )}
                 </div>
               </motion.div>
-            ))}
+            )})}
           </div>
 
           {/* Bottom CTA */}

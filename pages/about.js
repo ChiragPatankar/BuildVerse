@@ -13,6 +13,7 @@ const teamMembers = [
     name: 'Preksha Dewoolkar', 
     role: 'UI Designer | AI Engineer', 
     tagline: 'Clean Interfaces.', 
+    quote: 'I obsess over interfaces that feel invisible, reduce friction, and make complex AI systems feel simple for the people using them every day.',
     image: '/team/preksha.png', 
     linkedin: 'https://lnkd.in/dJtzPjwM', 
     twitter: 'https://lnkd.in/dnMSVZ9B' 
@@ -22,6 +23,7 @@ const teamMembers = [
     name: 'Rahul Sutar', 
     role: 'Business Executive', 
     tagline: 'Growth & Strategy', 
+    quote: 'I connect what we build to clear revenue and efficiency outcomes so every project has a business case, not just a feature list.',
     image: '/team/rahul.png', 
     linkedin: 'https://lnkd.in/duyZXUkP', 
     twitter: 'https://x.com/RAHULYSUTAR' 
@@ -31,6 +33,7 @@ const teamMembers = [
     name: 'Samruddhi Pande', 
     role: 'Social Media Manager', 
     tagline: 'Quiet Strategist.', 
+    quote: 'I turn client wins, demos, and learnings into a consistent story so prospects see how BuildVerse actually helps real teams move faster.',
     image: '/team/samruddhi.png', 
     linkedin: 'https://lnkd.in/dPz4GyJd', 
     twitter: 'https://x.com/Samruddhi_0' 
@@ -40,6 +43,7 @@ const teamMembers = [
     name: 'Karan Patkar', 
     role: 'Graphics Designer', 
     tagline: 'Tech Meets Design', 
+    quote: 'I translate complex product flows into clear visuals so it’s easier for clients to understand, adopt, and champion what we build.',
     image: '/team/karan.png', 
     linkedin: 'https://lnkd.in/daZBfdzY', 
     twitter: 'https://lnkd.in/d9Cekhxz' 
@@ -49,6 +53,7 @@ const teamMembers = [
     name: 'Shatakshi Jadhav', 
     role: 'Social Media Associate', 
     tagline: 'Scaling Reach.', 
+    quote: 'I highlight the small wins, progress updates, and case studies that keep our pipeline warm and show the momentum behind every build.',
     image: '/team/shatakshi.jpeg', 
     linkedin: '', 
     twitter: '' 
@@ -170,7 +175,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.5 }}
               >
                 <div className="bg-slate-50 dark:bg-white/5 border-2 border-slate-300 dark:border-white/10 rounded-2xl p-6 sticky top-32">
-                  <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/5 mb-6">
+                  <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/5 mb-4">
                     <Image
                       src={imageSrc}
                       alt="Founder portrait - Chirag Patankar"
@@ -182,31 +187,8 @@ export default function AboutPage() {
                     />
                   </div>
                   <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">Chirag Patankar</h2>
-                  <p className="text-sm text-slate-600 dark:text-gray-400 mb-1">Founder & CEO</p>
-                  <p className="text-sm text-slate-600 dark:text-gray-400 mb-6">AI Product Builder | Full-Stack Engineer</p>
-                  
-                  <div className="space-y-3">
-                    <div className="flex flex-wrap gap-2">
-                      <a href="https://www.linkedin.com/company/buildverse-studio/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[calc(50%-4px)] inline-flex items-center justify-center gap-2 px-3 py-2.5 text-xs font-medium bg-white dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-white/10 rounded-lg transition-colors">
-                        <FiLinkedin className="w-4 h-4" /> LinkedIn
-                      </a>
-                      <a href="https://x.com/_BuildVerse_" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[calc(50%-4px)] inline-flex items-center justify-center gap-2 px-3 py-2.5 text-xs font-medium bg-white dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-white/10 rounded-lg transition-colors">
-                        <FiTwitter className="w-4 h-4" /> Twitter
-                      </a>
-                      <a href="https://github.com/ChiragPatankar" target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 text-xs font-medium bg-white dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-white/10 rounded-lg transition-colors">
-                        <FiGithub className="w-4 h-4" /> GitHub
-                      </a>
-                    </div>
-                    
-                    <div className="pt-3 border-t-2 border-slate-200 dark:border-white/10 space-y-2">
-                      <Link href="/founder/Resume%20MS.pdf" target="_blank" className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium bg-slate-200 dark:bg-white/5 hover:bg-slate-300 dark:hover:bg-white/10 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-white/10 rounded-lg transition-colors">
-                        <FiExternalLink className="w-4 h-4" /> Download Resume
-                      </Link>
-                      <a href="mailto:chirag@buildverse.studio" className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium bg-primary-blue/10 hover:bg-primary-blue/20 text-primary-blue border border-primary-blue/20 rounded-lg transition-colors">
-                        Contact Me
-                      </a>
-                    </div>
-                  </div>
+                  <p className="text-sm text-slate-600 dark:text-gray-400 mb-1">Founder &amp; CEO</p>
+                  <p className="text-sm text-slate-600 dark:text-gray-400">AI Product Builder | Full-Stack Engineer</p>
                 </div>
               </motion.div>
 
@@ -222,13 +204,10 @@ export default function AboutPage() {
                   <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Meet the Founder</h2>
                   <div className="space-y-4 text-slate-700 dark:text-gray-300 leading-relaxed text-base">
                     <p>
-                      Chirag is a full‑stack engineer and AI product builder who helps companies ship reliable MVPs fast and scale them to production. With expertise spanning from recommendation systems to voice agents, he&apos;s led builds for AI platforms serving thousands of users.
-                    </p>
-                    <p>
-                      Currently pursuing Bachelor&apos;s in AI & Data Science (CGPA: 8.4/10.0), Chirag has already filed a patent for an adaptive learning system and founded BuildVerse to bridge the gap between AI innovation and business impact.
+                      Chirag is a full‑stack engineer and AI product builder who leads delivery at BuildVerse. He works directly with founders and teams to design, ship, and iterate on production-ready systems.
                     </p>
                     <p className="font-medium text-slate-900 dark:text-white">
-                      His approach: Ship fast, build for scale, and measure everything that matters.
+                      His focus is simple: clear scope, fast execution, and solutions your team can own long‑term.
                     </p>
                   </div>
                 </div>
@@ -239,19 +218,11 @@ export default function AboutPage() {
                     <ul className="space-y-2.5 text-slate-700 dark:text-gray-300 text-sm">
                       <li className="flex items-start gap-2">
                         <span className="text-primary-blue mt-1">✓</span>
-                        <span>Production MVPs with 2-week turnaround</span>
+                        <span>Shipping production-grade MVPs in weeks, not months</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-primary-blue mt-1">✓</span>
-                        <span>AI voice agents & conversational systems</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-primary-blue mt-1">✓</span>
-                        <span>Process automation reducing ops costs by 40%+</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-primary-blue mt-1">✓</span>
-                        <span>RAG systems & hybrid recommendation engines</span>
+                        <span>Designing AI agents, automations &amp; internal tools that plug into your stack</span>
                       </li>
                     </ul>
                   </div>
@@ -260,22 +231,32 @@ export default function AboutPage() {
                     <ul className="space-y-2.5 text-slate-700 dark:text-gray-300 text-sm">
                       <li className="flex items-start gap-2">
                         <span className="text-primary-blue mt-1">✓</span>
-                        <span>Patent filed: Adaptive learning system</span>
+                        <span>Built and shipped AI products used by thousands of end-users</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-primary-blue mt-1">✓</span>
-                        <span>TFWS scholarship recipient (merit-based)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-primary-blue mt-1">✓</span>
-                        <span>BCG X Gen AI certified</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-primary-blue mt-1">✓</span>
-                        <span>Led Graphics Team for college tech club</span>
+                        <span>Trusted by startups and teams across US, UK &amp; India</span>
                       </li>
                     </ul>
                   </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3 pt-4">
+                  <a href="https://www.linkedin.com/company/buildverse-studio/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 py-2.5 text-xs font-medium bg-slate-50 dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-white/10 rounded-lg transition-colors">
+                    <FiLinkedin className="w-4 h-4" /> LinkedIn
+                  </a>
+                  <a href="https://x.com/_BuildVerse_" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 py-2.5 text-xs font-medium bg-slate-50 dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-white/10 rounded-lg transition-colors">
+                    <FiTwitter className="w-4 h-4" /> Twitter
+                  </a>
+                  <a href="https://github.com/ChiragPatankar" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 py-2.5 text-xs font-medium bg-slate-50 dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-white/10 rounded-lg transition-colors">
+                    <FiGithub className="w-4 h-4" /> GitHub
+                  </a>
+                  <Link href="/founder/Resume%20MS.pdf" target="_blank" className="inline-flex items-center justify-center gap-2 px-3 py-2.5 text-xs font-medium bg-slate-50 dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 text-slate-700 dark:text-gray-300 border border-slate-300 dark:border-white/10 rounded-lg transition-colors">
+                    <FiExternalLink className="w-4 h-4" /> Download Resume
+                  </Link>
+                  <a href="mailto:chirag@buildverse.studio" className="inline-flex items-center justify-center gap-2 px-3 py-2.5 text-xs font-medium bg-primary-blue/10 hover:bg-primary-blue/20 text-primary-blue border border-primary-blue/20 rounded-lg transition-colors">
+                    Contact Me
+                  </a>
                 </div>
               </motion.div>
             </div>
@@ -310,8 +291,13 @@ export default function AboutPage() {
                     />
                   </div>
                   <h3 className="font-bold text-xl dark:text-white mb-1">{member.name}</h3>
-                  <p className="text-primary-blue text-xs font-bold uppercase mb-2 tracking-wider">{member.role}</p>
-                  <p className="text-slate-500 dark:text-gray-400 text-sm italic mb-4">&quot;{member.tagline}&quot;</p>
+                  <p className="text-primary-blue text-xs font-bold uppercase mb-1 tracking-wider">{member.role}</p>
+                  <p className="text-slate-500 dark:text-gray-400 text-xs italic mb-2">&quot;{member.tagline}&quot;</p>
+                  {member.quote && (
+                    <p className="text-slate-600 dark:text-gray-300 text-xs leading-relaxed mb-3">
+                      {member.quote}
+                    </p>
+                  )}
                   <div className="flex gap-3 pt-4 border-t border-slate-200 dark:border-white/10">
                     {member.linkedin && (
                       <a 
