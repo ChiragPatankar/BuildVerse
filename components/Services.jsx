@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { FiCpu, FiMic, FiZap, FiBarChart2, FiArrowRight } from 'react-icons/fi'
+import { getBookingCalUrl } from '../lib/bookingUrl.js'
 
 const Services = () => {
   const ref = useRef(null)
@@ -31,6 +32,7 @@ const Services = () => {
 
   const services = [
     {
+      productId: 'AI_AGENTS',
       icon: FiMic,
       title: 'AI Agents (Voice / Chat / Calling)',
       timeline: '2–4 weeks',
@@ -44,6 +46,7 @@ const Services = () => {
       line: 'Fixed scope. No hidden overages.',
     },
     {
+      productId: 'MVP',
       icon: FiCpu,
       title: 'MVP Development',
       timeline: '4–8 weeks',
@@ -57,6 +60,7 @@ const Services = () => {
       line: 'Includes post-launch support.',
     },
     {
+      productId: 'CRM',
       icon: FiZap,
       title: 'CRM Solutions',
       timeline: '2–3 weeks',
@@ -70,6 +74,7 @@ const Services = () => {
       line: 'HIPAA-ready options available.',
     },
     {
+      productId: 'BI',
       icon: FiBarChart2,
       title: 'Dashboard & BI',
       timeline: '3–5 weeks',
@@ -131,6 +136,7 @@ const Services = () => {
                 variants={itemVariants}
                 whileHover={{ y: -4 }}
                 className="group"
+                data-product-id={service.productId}
               >
                 <div className="h-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl p-6 hover:border-primary-blue/40 hover:shadow-lg hover:shadow-primary-blue/5 transition-all duration-300">
                   {/* Header */}
@@ -179,7 +185,7 @@ const Services = () => {
           {/* CTA */}
           <motion.div variants={itemVariants} className="text-center pt-4">
             <motion.a
-              href="https://cal.com/chirag-9yxbl2/20-min-strategy-call"
+              href={getBookingCalUrl()}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.02 }}

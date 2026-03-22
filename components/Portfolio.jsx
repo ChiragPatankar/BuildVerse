@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { FiArrowUpRight, FiBarChart2, FiMessageSquare, FiCpu, FiTrendingUp, FiLayers, FiTarget, FiExternalLink, FiMapPin } from 'react-icons/fi'
+import { getBookingCalUrl } from '../lib/bookingUrl.js'
 
 const Portfolio = () => {
   const ref = useRef(null)
@@ -315,7 +316,7 @@ const Portfolio = () => {
                 challenge. No pitch deck—just a practical conversation about what&apos;s possible.
               </p>
               <motion.a
-                href="https://cal.com/chirag-9yxbl2/20-min-strategy-call"
+                href={getBookingCalUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}

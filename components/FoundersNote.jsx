@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import Image from 'next/image'
 import { FiLinkedin, FiCalendar } from 'react-icons/fi'
+import { getBookingCalUrl } from '../lib/bookingUrl.js'
 
 const FoundersNote = () => {
   const ref = useRef(null)
@@ -98,7 +99,7 @@ const FoundersNote = () => {
                         <FiLinkedin className="w-5 h-5 text-slate-700 dark:text-white" />
                       </a>
                       <a
-                        href="https://cal.com/chirag-9yxbl2/20-min-strategy-call"
+                        href={getBookingCalUrl()}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center space-x-2 px-4 py-2 bg-primary-blue hover:bg-blue-600 text-white font-semibold rounded-lg text-sm transition-colors"

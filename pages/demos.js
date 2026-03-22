@@ -4,6 +4,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { FiPlay, FiExternalLink, FiChevronRight, FiCheck, FiUsers, FiClock, FiZap } from 'react-icons/fi'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { getBookingCalUrl } from '@/lib/bookingUrl.js'
 
 // =============================================================================
 // DATA - Enhanced with better copy and outcome-focused features
@@ -897,7 +898,7 @@ export default function Demos() {
                   </div>
 
                   <motion.a
-                    href="https://cal.com/chirag-9yxbl2/20-min-strategy-call"
+                    href={getBookingCalUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 w-full rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-4 text-base font-bold text-white shadow-lg shadow-emerald-500/25 transition-all duration-300 hover:shadow-xl"

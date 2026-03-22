@@ -3,6 +3,7 @@ import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { FiMail, FiLinkedin, FiSend, FiCheck, FiPhone, FiCalendar, FiClock, FiGlobe, FiMapPin, FiUsers } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
+import { getBookingCalUrl } from '../lib/bookingUrl.js'
 
 const Contact = () => {
   const ref = useRef(null)
@@ -137,7 +138,7 @@ const Contact = () => {
               </p>
               
               <motion.a
-                href="https://cal.com/chirag-9yxbl2/20-min-strategy-call"
+                href={getBookingCalUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { FiCalendar, FiArrowRight } from 'react-icons/fi'
+import { getBookingCalUrl } from '../lib/bookingUrl.js'
 
 const WhyCompaniesChoose = () => {
   const ref = useRef(null)
@@ -112,7 +113,7 @@ const WhyCompaniesChoose = () => {
           {/* CTA */}
           <motion.div variants={itemVariants} className="text-center pt-2">
             <motion.a
-              href="https://cal.com/chirag-9yxbl2/20-min-strategy-call"
+              href={getBookingCalUrl()}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.02 }}

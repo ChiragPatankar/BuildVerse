@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion'
 import { FiArrowRight, FiCalendar } from 'react-icons/fi'
 import Link from 'next/link'
 import { useEffect, useState, useRef } from 'react'
+import { getBookingCalUrl } from '../lib/bookingUrl.js'
 
 // Counter animation hook
 const useCountUp = (end, duration = 2000, startCounting = false) => {
@@ -241,7 +242,7 @@ const Hero = () => {
               </Link>
 
               <motion.a
-                href="https://cal.com/chirag-9yxbl2/20-min-strategy-call"
+                href={getBookingCalUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}

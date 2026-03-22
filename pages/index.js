@@ -11,6 +11,7 @@ import FoundersNote from '@/components/FoundersNote'
 import Testimonials from '@/components/Testimonials'
 import Contact from '@/components/Contact'
 import GlobalCredibility from '@/components/GlobalCredibility'
+import SmartExitPopup from '@/components/SmartExitPopup'
 import Footer from '@/components/Footer'
 
 export default function Home() {
@@ -184,6 +185,7 @@ export default function Home() {
         <Testimonials />
         <Contact />
         <GlobalCredibility />
+        <SmartExitPopup />
         <Footer />
       </main>
     </>

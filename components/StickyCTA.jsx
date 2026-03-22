@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { FiCalendar, FiX } from 'react-icons/fi'
+import { getBookingCalUrl } from '../lib/bookingUrl.js'
 
 const StickyCTA = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -39,7 +40,7 @@ const StickyCTA = () => {
           className="fixed bottom-8 right-4 z-50 flex items-center space-x-2"
         >
           <motion.a
-            href="https://cal.com/chirag-9yxbl2/20-min-strategy-call"
+            href={getBookingCalUrl()}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
