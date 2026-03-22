@@ -1,35 +1,77 @@
 /**
- * Local / Node (Vercel, `next dev`). For Cloudflare Pages static export, the live route is
- * `functions/api/popup-lead.js` — keep behavior in sync when changing this file.
+ * Cloudflare Pages Function — mirrors pages/api/popup-lead.js
+ * Required on static export (output: 'export'); Next.js API routes are not deployed to CF Pages.
  */
-import { getBookingCalUrl } from '../../lib/bookingUrl.js'
 
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    res.setHeader('Allow', ['POST'])
-    return res.status(405).json({ error: 'Method Not Allowed' })
-  }
+function getBookingCalUrl(env) {
+  return (
+    env.CAL_COM_BOOKING_URL ||
+    env.NEXT_PUBLIC_CAL_BOOKING_URL ||
+    'https://cal.com/chirag-9yxbl2/20-min-strategy-call'
+  )
+}
 
-  const supabaseUrl = process.env.SUPABASE_URL
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+function corsJson(status, data) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Content-Type': 'application/json',
+    },
+  })
+}
+
+const withTimeout = (promise, ms) => {
+  let timeoutId
+  const timeout = new Promise((_, reject) => {
+    timeoutId = setTimeout(() => reject(new Error(`Supabase timeout after ${ms}ms`)), ms)
+  })
+  return Promise.race([promise, timeout]).finally(() => {
+    if (timeoutId) clearTimeout(timeoutId)
+  })
+}
+
+export async function onRequestOptions() {
+  return new Response(null, {
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  })
+}
+
+export async function onRequestPost(context) {
+  const { request, env } = context
+
+  const supabaseUrl = env.SUPABASE_URL
+  const supabaseServiceKey = env.SUPABASE_SERVICE_ROLE_KEY
 
   if (!supabaseUrl || !supabaseServiceKey) {
-    return res.status(500).json({
+    return corsJson(500, {
       error: 'Supabase not configured',
       message: 'Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY',
     })
   }
 
-  const { email, company, productId, variant, answers, caseStudyUrl } = req.body || {}
-
-  if (!email || !company) {
-    return res.status(400).json({ error: 'Missing required fields: email, company' })
+  let body
+  try {
+    body = await request.json()
+  } catch (e) {
+    return corsJson(400, { error: 'Invalid JSON', details: e.message })
   }
 
-  const forwardedFor = req.headers['x-forwarded-for']
+  const { email, company, productId, variant, answers, caseStudyUrl } = body || {}
+
+  if (!email || !company) {
+    return corsJson(400, { error: 'Missing required fields: email, company' })
+  }
+
   const ip =
-    (Array.isArray(forwardedFor) ? forwardedFor[0] : (forwardedFor || '')).split(',')[0].trim() ||
-    req.socket?.remoteAddress ||
+    request.headers.get('cf-connecting-ip') ||
+    request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
     null
 
   const name = company || 'Popup Lead'
@@ -41,29 +83,18 @@ export default async function handler(req, res) {
     source: 'SmartExitPopup',
   }
 
-  const withTimeout = (promise, ms) => {
-    let timeoutId
-    const timeout = new Promise((_, reject) => {
-      timeoutId = setTimeout(() => reject(new Error(`Supabase timeout after ${ms}ms`)), ms)
-    })
-
-    return Promise.race([promise, timeout]).finally(() => {
-      if (timeoutId) clearTimeout(timeoutId)
-    })
+  const row = {
+    name,
+    email,
+    company: company || null,
+    message: JSON.stringify(messagePayload),
+    source: 'SmartExitPopup',
+    ip,
+    user_agent: request.headers.get('user-agent') || null,
+    status: 'new',
   }
 
   try {
-    const row = {
-      name,
-      email,
-      company: company || null,
-      message: JSON.stringify(messagePayload),
-      source: 'SmartExitPopup',
-      ip,
-      user_agent: req.headers['user-agent'] || null,
-      status: 'new',
-    }
-
     const insertPromise = fetch(`${supabaseUrl}/rest/v1/contact_submissions`, {
       method: 'POST',
       headers: {
@@ -79,17 +110,13 @@ export default async function handler(req, res) {
     if (!insertResp.ok) {
       const detailText = await insertResp.text().catch(() => '')
       const details = detailText || `HTTP ${insertResp.status}`
-      return res.status(500).json({ error: 'Insert failed', details })
+      return corsJson(500, { error: 'Insert failed', details })
     }
 
-    // Optional: send newsletter-style follow-up email with the recommended case study link.
-    // To enable, set:
-    // BREVO_API_KEY, BREVO_SENDER_EMAIL (verified sender), BREVO_SENDER_NAME (optional)
-    // CAL_COM_BOOKING_URL / NEXT_PUBLIC_CAL_BOOKING_URL — see lib/bookingUrl.js
-    const brevoKey = process.env.BREVO_API_KEY
-    const senderEmail = process.env.BREVO_SENDER_EMAIL
-    const senderName = process.env.BREVO_SENDER_NAME || 'BuildVerse'
-    const calBookingUrl = getBookingCalUrl()
+    const brevoKey = env.BREVO_API_KEY
+    const senderEmail = env.BREVO_SENDER_EMAIL
+    const senderName = env.BREVO_SENDER_NAME || 'BuildVerse'
+    const calBookingUrl = getBookingCalUrl(env)
 
     let emailSent = false
     let emailStatus = 'not_configured'
@@ -120,14 +147,12 @@ export default async function handler(req, res) {
     <tr>
       <td align="center">
         <table role="presentation" width="600" cellspacing="0" cellpadding="0" style="max-width:600px;width:100%;background-color:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.25);">
-          <!-- Top bar -->
           <tr>
             <td style="background:linear-gradient(90deg,#2563eb,#7c3aed);padding:16px 24px;">
               <p style="margin:0;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.85);">BuildVerse · Field notes</p>
               <p style="margin:6px 0 0;font-size:20px;font-weight:700;color:#ffffff;">Your recommended read</p>
             </td>
           </tr>
-          <!-- Intro -->
           <tr>
             <td style="padding:28px 24px 8px;">
               <p style="margin:0 0 12px;font-size:15px;line-height:1.6;color:#334155;">Hi there,</p>
@@ -136,7 +161,6 @@ export default async function handler(req, res) {
               </p>
             </td>
           </tr>
-          <!-- Featured card -->
           <tr>
             <td style="padding:0 24px 24px;">
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;">
@@ -151,7 +175,6 @@ export default async function handler(req, res) {
               </table>
             </td>
           </tr>
-          <!-- Book a call — always included -->
           <tr>
             <td style="padding:0 24px 24px;">
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:linear-gradient(135deg,#f5f3ff 0%,#eef2ff 100%);border:1px solid #c7d2fe;border-radius:10px;">
@@ -166,7 +189,6 @@ export default async function handler(req, res) {
               </table>
             </td>
           </tr>
-          <!-- Newsletter body -->
           <tr>
             <td style="padding:0 24px 24px;">
               <p style="margin:0 0 12px;font-size:14px;font-weight:600;color:#0f172a;">This week at BuildVerse</p>
@@ -189,7 +211,6 @@ export default async function handler(req, res) {
               </table>
             </td>
           </tr>
-          <!-- Footer -->
           <tr>
             <td style="padding:20px 24px 28px;background:#f1f5f9;border-top:1px solid #e2e8f0;">
               <p style="margin:0 0 8px;font-size:13px;color:#64748b;line-height:1.5;">You’re receiving this because you requested a resource on <a href="https://buildverse.studio" style="color:#2563eb;">buildverse.studio</a>.</p>
@@ -256,7 +277,6 @@ BuildVerse — https://buildverse.studio
           emailStatus = `brevo_http_${brevoResp.status}`
         }
       } catch (emailErr) {
-        // Do not fail lead capture if email send fails.
         emailStatus = 'send_failed'
         console.error('Brevo send failed:', emailErr?.message || emailErr)
       }
@@ -264,12 +284,11 @@ BuildVerse — https://buildverse.studio
       emailStatus = 'missing_brevo_config'
     }
 
-    return res.status(200).json({ ok: true, emailSent, emailStatus })
+    return corsJson(200, { ok: true, emailSent, emailStatus })
   } catch (e) {
-    return res.status(500).json({
+    return corsJson(500, {
       error: 'Server error',
       message: e?.message || 'Unknown error',
     })
   }
 }
-
