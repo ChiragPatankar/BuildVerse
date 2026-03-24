@@ -37,7 +37,7 @@ export async function onRequest(context) {
 
   const headers = new Headers()
   object.writeHttpMetadata(headers)
-  headers.set('Cache-Control', 'public, max-age=31536000, immutable')
+  headers.set('Cache-Control', 'public, max-age=3600, must-revalidate')
   headers.set('Access-Control-Allow-Origin', '*')
   headers.set('Content-Type', 'video/mp4')
   headers.set('Accept-Ranges', 'bytes')
