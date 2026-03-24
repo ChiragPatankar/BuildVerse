@@ -534,8 +534,8 @@ export default function Demos() {
   const closeVideo = useCallback(() => setActiveVideo(null), []);
 
   // SEO
-  const pageTitle = 'Product Demos | Try Our CRM Solutions Free | BuildVerse';
-  const pageDescription = 'Try industry-specific CRMs for healthcare, real estate, legal, construction, and agencies. Interactive demos available—full access to all features.';
+  const pageTitle = 'Product Demos | AI Voice Agents & CRM Solutions | BuildVerse';
+  const pageDescription = 'See AI voice agents in action and try industry-specific CRMs for healthcare, real estate, legal, construction, and agencies. Interactive demos — full access, no credit card.';
   const pageUrl = 'https://buildverse.studio/demos';
 
   const structuredData = {
@@ -659,7 +659,7 @@ export default function Demos() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mx-auto mt-6 max-w-2xl text-lg sm:text-xl text-slate-600 dark:text-white/70 leading-relaxed"
             >
-              Test-drive production-ready CRMs built for your industry. Full access, no commitment—see exactly how they work for teams like yours.
+              Test-drive production-ready AI voice agents and industry-specific CRMs. Full access, no commitment—see exactly how they work for teams like yours.
             </motion.p>
 
             {/* CTAs */}
@@ -710,30 +710,31 @@ export default function Demos() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="w-[220px] sm:w-[240px] flex-shrink-0"
+                className="w-[300px] sm:w-[340px] lg:w-[360px] flex-shrink-0"
               >
-                <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black ring-1 ring-black/10">
-                  {/* phone-style notch */}
-                  <div className="bg-black flex justify-center py-2">
-                    <div className="w-16 h-1.5 rounded-full bg-white/20" />
+                <div className="rounded-[2rem] overflow-hidden shadow-2xl border-4 border-slate-700 dark:border-slate-600 bg-black ring-4 ring-black/20">
+                  {/* phone speaker pill */}
+                  <div className="bg-slate-900 flex justify-center items-center gap-2 px-4 pt-3 pb-2">
+                    <div className="w-12 h-1 rounded-full bg-white/20" />
+                    <div className="w-2 h-2 rounded-full bg-white/10" />
                   </div>
                   <div className="aspect-[9/16] bg-black">
                     <video
                       controls
                       playsInline
                       preload="metadata"
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-cover"
                       aria-label="AI real estate voice agent booking a site visit"
                     >
                       <source src={VOICE_AGENT_DEMO_VIDEO_SRC} type="video/mp4" />
                     </video>
                   </div>
-                  <div className="bg-black px-3 py-2.5 flex items-center gap-2">
-                    <span className="flex h-2 w-2 flex-shrink-0">
-                      <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-emerald-400 opacity-75" />
+                  <div className="bg-slate-900 px-4 py-3 flex items-center gap-2">
+                    <span className="relative flex h-2 w-2 flex-shrink-0">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                       <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
                     </span>
-                    <p className="text-xs text-white/70 font-medium">Live call recording</p>
+                    <p className="text-xs text-white/60 font-medium">Live call recording</p>
                   </div>
                 </div>
               </motion.div>
