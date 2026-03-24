@@ -701,44 +701,79 @@ export default function Demos() {
           id="ai-voice-demo"
           className="container mx-auto px-4 py-12 sm:py-16 sm:px-6 lg:px-8 border-b border-slate-200 dark:border-white/10 bg-slate-50/80 dark:bg-white/[0.02]"
         >
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-8"
-            >
-              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-300 dark:border-emerald-500/30 bg-emerald-50 dark:bg-emerald-500/10 px-4 py-1.5 mb-4 text-sm font-semibold text-emerald-800 dark:text-emerald-400">
-                <FiMic className="w-4 h-4" aria-hidden />
-                AI voice · Real estate
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3">
-                Voice agent in action: booking a site visit
-              </h2>
-              <p className="text-slate-600 dark:text-white/65 max-w-2xl mx-auto leading-relaxed">
-                Hear how our AI handles a real call—qualifying the lead and locking in a site visit. This is the same voice stack we ship for PropelCRM and custom real-estate builds.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: 0.08 }}
-              className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 bg-black shadow-2xl ring-1 ring-black/5 dark:ring-white/10 aspect-video"
-            >
-              <video
-                controls
-                playsInline
-                preload="metadata"
-                className="absolute inset-0 w-full h-full object-contain"
-                aria-label="AI real estate voice agent booking a site visit"
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+              {/* Video (portrait card) */}
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="relative"
               >
-                <source src={VOICE_AGENT_DEMO_VIDEO_SRC} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </motion.div>
+                <div className="rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 bg-black shadow-2xl ring-1 ring-black/5 dark:ring-white/10">
+                  <div className="absolute inset-0 bg-gradient-to-b from-indigo-500/10 via-emerald-500/5 to-transparent pointer-events-none" />
+                  <div className="relative aspect-[9/16] w-full bg-black">
+                    <video
+                      controls
+                      playsInline
+                      preload="metadata"
+                      className="absolute inset-0 w-full h-full object-contain"
+                      aria-label="AI real estate voice agent booking a site visit"
+                    >
+                      <source src={VOICE_AGENT_DEMO_VIDEO_SRC} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <div className="p-4 border-t border-white/10">
+                    <p className="text-sm font-semibold text-slate-100/90">
+                      Watch: AI qualifies the lead and books the visit
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Copy + CTA */}
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: 0.06 }}
+                className="max-w-xl"
+              >
+                <span className="inline-flex items-center gap-2 rounded-full border border-emerald-300 dark:border-emerald-500/30 bg-emerald-50 dark:bg-emerald-500/10 px-4 py-1.5 mb-5 text-sm font-semibold text-emerald-800 dark:text-emerald-400">
+                  <FiMic className="w-4 h-4" aria-hidden />
+                  AI voice · Real estate
+                </span>
+
+                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white leading-tight mb-4">
+                  Voice agent in action: booking a site visit
+                </h2>
+
+                <p className="text-slate-600 dark:text-white/65 leading-relaxed mb-6">
+                  Hear how our AI handles a real call—qualifying the lead and locking in a site visit. This is the same voice stack we ship for PropelCRM and custom real-estate builds.
+                </p>
+
+                <a
+                  href={getBookingCalUrl()}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary-blue to-blue-600 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/35"
+                >
+                  Book your 20‑min strategy call
+                  <FiChevronRight className="w-5 h-5" aria-hidden />
+                </a>
+
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2 text-sm text-slate-700 dark:text-white/70">
+                    <FiCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" aria-hidden />
+                    Lead qualification
+                  </div>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2 text-sm text-slate-700 dark:text-white/70">
+                    <FiCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" aria-hidden />
+                    Visit scheduling
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
