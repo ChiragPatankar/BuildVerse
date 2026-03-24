@@ -1,10 +1,14 @@
 import Head from 'next/head'
 import { useCallback, useState, useEffect, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { FiPlay, FiExternalLink, FiChevronRight, FiCheck, FiUsers, FiClock, FiZap } from 'react-icons/fi'
+import { FiPlay, FiExternalLink, FiChevronRight, FiCheck, FiUsers, FiClock, FiZap, FiMic } from 'react-icons/fi'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { getBookingCalUrl } from '@/lib/bookingUrl.js'
+
+/** R2 via Pages Function (`functions/api/video/VoiceAgent_RealEstate.js` → object `VoiceAgent_RealEstate.mp4`). Optional absolute URL override. */
+const VOICE_AGENT_DEMO_VIDEO_SRC =
+  process.env.NEXT_PUBLIC_VOICE_AGENT_DEMO_VIDEO_URL || '/api/video/VoiceAgent_RealEstate'
 
 // =============================================================================
 // DATA - Enhanced with better copy and outcome-focused features
@@ -691,6 +695,52 @@ export default function Demos() {
 
         {/* Stats */}
         <StatsBar />
+
+        {/* AI voice agent — above CRM product demos */}
+        <section
+          id="ai-voice-demo"
+          className="container mx-auto px-4 py-12 sm:py-16 sm:px-6 lg:px-8 border-b border-slate-200 dark:border-white/10 bg-slate-50/80 dark:bg-white/[0.02]"
+        >
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-8"
+            >
+              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-300 dark:border-emerald-500/30 bg-emerald-50 dark:bg-emerald-500/10 px-4 py-1.5 mb-4 text-sm font-semibold text-emerald-800 dark:text-emerald-400">
+                <FiMic className="w-4 h-4" aria-hidden />
+                AI voice · Real estate
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3">
+                Voice agent in action: booking a site visit
+              </h2>
+              <p className="text-slate-600 dark:text-white/65 max-w-2xl mx-auto leading-relaxed">
+                Hear how our AI handles a real call—qualifying the lead and locking in a site visit. This is the same voice stack we ship for PropelCRM and custom real-estate builds.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: 0.08 }}
+              className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 bg-black shadow-2xl ring-1 ring-black/5 dark:ring-white/10 aspect-video"
+            >
+              <video
+                controls
+                playsInline
+                preload="metadata"
+                className="absolute inset-0 w-full h-full object-contain"
+                aria-label="AI real estate voice agent booking a site visit"
+              >
+                <source src={VOICE_AGENT_DEMO_VIDEO_SRC} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </motion.div>
+          </div>
+        </section>
 
         {/* Products */}
         <section id="products" className="container mx-auto px-4 py-16 sm:py-20 sm:px-6 lg:px-8">
