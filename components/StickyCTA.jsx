@@ -48,8 +48,8 @@ const StickyCTA = () => {
             className="flex items-center space-x-2 px-5 py-3 bg-primary-blue hover:bg-blue-600 text-white font-semibold rounded-full shadow-lg shadow-primary-blue/30 transition-colors"
           >
             <FiCalendar className="w-4 h-4" />
-            <span className="hidden sm:inline">Talk to an Expert</span>
-            <span className="sm:hidden">Book Call</span>
+            <span className="hidden sm:inline">🚀 Get My Free Plan</span>
+            <span className="sm:hidden">🚀 Free Plan</span>
           </motion.a>
           
           <motion.button
